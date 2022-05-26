@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>tech.solutionarchitects.advertisment_sdk</groupId>
   <artifactId>beta</artifactId>
-  <version>1.1</version>
+  <version>0.0.7</version>
   <packaging>aar</packaging>
   <build>
        <plugins>
@@ -16,6 +16,11 @@
        </plugins>
    </build>
   <dependencies>
+    <dependency>
+      <groupId>com.github.solutionarchitectstech</groupId>
+      <artifactId>android_tracker_sdk_release</artifactId>
+      <version>0.0.6</version>
+    </dependency>
     <dependency>
       <groupId>androidx.appcompat</groupId>
       <artifactId>appcompat</artifactId>
