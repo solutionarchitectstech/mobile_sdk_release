@@ -3,9 +3,9 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>tech.solutionarchitects.advertisment_sdk</groupId>
   <artifactId>beta</artifactId>
-  <version>0.0.18</version>
+  <version>0.0.19</version>
   <packaging>aar</packaging>
-  <build>
+<build>
        <plugins>
            <plugin>
                <groupId>com.simpligility.maven.plugins</groupId>
@@ -19,7 +19,7 @@
     <dependency>
       <groupId>com.github.solutionarchitectstech</groupId>
       <artifactId>android_tracker_sdk_release</artifactId>
-      <version>0.0.10</version>
+      <version>0.0.11</version>
     </dependency>
     <dependency>
       <groupId>androidx.appcompat</groupId>
