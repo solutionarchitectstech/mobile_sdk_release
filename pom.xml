@@ -3,18 +3,18 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>tech.solutionarchitects.advertisment_sdk</groupId>
   <artifactId>beta</artifactId>
-  <version>0.0.26</version>
+  <version>0.0.27</version>
   <packaging>aar</packaging>
   <build>
-       <plugins>
-           <plugin>
-               <groupId>com.simpligility.maven.plugins</groupId>
-               <artifactId>android-maven-plugin</artifactId>
-               <version>4.3.0</version> <!-- use latest release -->
-               <extensions>true</extensions>
-           </plugin>
-       </plugins>
-   </build>
+    <plugins>
+      <plugin>
+        <groupId>com.simpligility.maven.plugins</groupId>
+        <artifactId>android-maven-plugin</artifactId>
+        <version>4.3.0</version> <!-- use latest release -->
+        <extensions>true</extensions>
+      </plugin>
+    </plugins>
+  </build>
   <dependencies>
     <dependency>
       <groupId>com.github.solutionarchitectstech</groupId>
@@ -87,14 +87,9 @@
       <version>2.2.0</version>
     </dependency>
     <dependency>
-      <groupId>au.com.gridstone.debugdrawer</groupId>
-      <artifactId>debugdrawer</artifactId>
-      <version>0.9.8</version>
-    </dependency>
-    <dependency>
-      <groupId>au.com.gridstone.debugdrawer</groupId>
-      <artifactId>debugdrawer-timber</artifactId>
-      <version>0.9.8</version>
+      <groupId>androidx.databinding</groupId>
+      <artifactId>viewbinding</artifactId>
+      <version>7.2.2</version>
     </dependency>
   </dependencies>
 </project>
