@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>tech.solutionarchitects.advertisment_sdk</groupId>
   <artifactId>beta</artifactId>
-  <version>0.0.28</version>
+  <version>0.1.0</version>
   <packaging>aar</packaging>
   <build>
     <plugins>
@@ -19,7 +19,7 @@
     <dependency>
       <groupId>com.github.solutionarchitectstech</groupId>
       <artifactId>android_tracker_sdk_release</artifactId>
-      <version>0.0.11</version>
+      <version>0.0.12</version>
     </dependency>
     <dependency>
       <groupId>androidx.appcompat</groupId>
@@ -87,9 +87,14 @@
       <version>2.2.0</version>
     </dependency>
     <dependency>
-      <groupId>androidx.databinding</groupId>
-      <artifactId>viewbinding</artifactId>
-      <version>7.2.2</version>
+      <groupId>au.com.gridstone.debugdrawer</groupId>
+      <artifactId>debugdrawer</artifactId>
+      <version>0.9.8</version>
+    </dependency>
+    <dependency>
+      <groupId>au.com.gridstone.debugdrawer</groupId>
+      <artifactId>debugdrawer-timber</artifactId>
+      <version>0.9.8</version>
     </dependency>
   </dependencies>
 </project>
