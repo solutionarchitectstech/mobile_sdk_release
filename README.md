@@ -128,18 +128,26 @@ To request and display banner ads, call the method  `BannerView.load()`:
 banner.load(
     placementId: String,
     sizes: List<Size>,
+    timeout: Int? = null,
+    refresh: Int? = null,
+    closeButtonType: CloseButtonType = CloseButtonType.Visible,
+    customParams: Map<String, String>? = null,
     listener: TechAdvertisingListener? = null
 )
 ```
 
 - `placementId` - (required) ID of the ad slot. For example: `456`.
 - `sizes` - (required) list of valid [sizes](#size) for the banner. For example: `listOf(Size(300,250))`.
-- `listener` - banner loading event handler function that accepts an event of one of the following types as input:
-    - `LoadDataSuccess` - a request to the ad server returned a link to the content;
-    - `LoadDataFail` - error while requesting the ad server;
-    - `LoadContentSuccess` - creative uploaded successfully;
-    - `LoadContentFail` - error loading creative;
-    - `CloseButtonClick` - the user closed the ad viewing screen.
+- `timeout` - (optional) - maximum time in seconds before closing advertisement.
+- `refresh` - (optional) - time in seconds in which sending new request for getting advertisement.
+- `closeButtonType` - (optional, default: `CloseButtonType.Visible`) type of button from enum.
+- `customParams` - (optional) `Map<String, String>` custom parameters to add to banner request. Eg: `customParams = mapOf("example" to "value", "example2" to "value2")`.
+- `listener` - (optional) banner loading event handler function that accepts an event of one of the following types as input:
+    - `BannerLoadDataSuccess` - a request to the ad server returned a link to the content;
+    - `BannerLoadDataFail` - error while requesting the ad server;
+    - `BannerLoadContentSuccess` - creative uploaded successfully;
+    - `BannerLoadContentFail` - error loading creative;
+    - `BannerCloseButtonClick` - the user closed the ad viewing screen.
 
 ### Example with xml-layout
 
@@ -148,25 +156,31 @@ import tech.solutionarchitects.advertisingsdk.listener.*
 
 banner.load(
     placementId = "456",
-    sizes = listOf(Size(width = 300, height = 250),
-                    Size(width = 300, height = 300))
+    sizes = listOf(Size(width = 300, height = 250), Size(width = 300, height = 300))
 ) { event ->
     when (event) {
-        is LoadDataSuccess -> {
-            println("LoadDataSuccess: ${event.placementId}")
-        }
-        is LoadDataFail -> {
-            println("LoadDataFail: ${event.throwable}")
-        }
-        is LoadContentSuccess -> {
-            println("LoadContentSuccess: ${event.placementId}")
-        }
-        is LoadContentFail -> {
-            println("LoadContentFail: ${event.throwable}")
-        }
-        is CloseButtonClick -> {
-            println("CloseButtonClick: ${event.placementId}")
-        }
+      is BannerLoadDataSuccess -> {
+        println("BannerLoadDataSuccess: ${event.placementId}")
+      }
+
+      is BannerLoadDataFail -> {
+        println("BannerLoadDataFail: ${event.throwable}")
+      }
+
+      is BannerLoadContentSuccess -> {
+        println("BannerLoadContentSuccess: ${event.placementId}")
+      }
+
+      is BannerLoadContentFail -> {
+        println("BannerLoadContentFail: ${event.throwable}")
+      }
+
+      is BannerCloseButtonClick -> {
+        println("BannerCloseButtonClick: ${event.placementId}")
+        finish()
+      }
+
+      else -> {}
     }
 }
 ```
@@ -185,24 +199,32 @@ bannerView.layoutParams = ViewGroup.LayoutParams(
 
 bannerView.load(
     placementId = "456",
-    sizes = listOf(Size(width = 300, height = 250))
+    sizes = listOf(Size(width = 300, height = 250)),
+    // customParams = mapOf("example" to "value", "example2" to "value2")    
 ) { event ->
     when (event) {
-        is LoadDataSuccess -> {
-            println("LoadDataSuccess: ${event.placementId}")
-        }
-        is LoadDataFail -> {
-            println("LoadDataFail: ${event.throwable}")
-        }
-        is LoadContentSuccess -> {
-            println("LoadContentSuccess: ${event.placementId}")
-        }
-        is LoadContentFail -> {
-            println("LoadContentFail: ${event.throwable}")
-        }
-        is CloseButtonClick -> {
-            println("CloseButtonClick: ${event.placementId}")
-        }
+      is BannerLoadDataSuccess -> {
+        println("BannerLoadDataSuccess: ${event.placementId}")
+      }
+
+      is BannerLoadDataFail -> {
+        println("BannerLoadDataFail: ${event.throwable}")
+      }
+
+      is BannerLoadContentSuccess -> {
+        println("BannerLoadContentSuccess: ${event.placementId}")
+      }
+
+      is BannerLoadContentFail -> {
+        println("BannerLoadContentFail: ${event.throwable}")
+      }
+
+      is BannerCloseButtonClick -> {
+        println("BannerCloseButtonClick: ${event.placementId}")
+        finish()
+      }
+
+      else -> {}
     }
 }
 ```

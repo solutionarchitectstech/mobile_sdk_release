@@ -45,7 +45,7 @@ class BannerViewActivity : AppCompatActivity() {
             placementId = "1",
             sizes = listOf(Size(width = 1024, height = 768)),
             closeButtonType = CloseButtonType.Countdown(milliseconds = 3_000),
-            //customParams = mapOf("example" to "value", "example2" to "value2")
+            // customParams = mapOf("example" to "value", "example2" to "value2")
         ) { event ->
             when (event) {
                 is BannerLoadDataSuccess -> {
