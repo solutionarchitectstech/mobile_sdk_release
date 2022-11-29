@@ -63,10 +63,13 @@ class BannerViewActivity : AppCompatActivity() {
                 is BannerLoadContentFail -> {
                     println("BannerLoadContentFail: ${event.throwable}")
                 }
+
                 is BannerCloseButtonClick -> {
                     println("BannerCloseButtonClick: ${event.placementId}")
                     finish()
                 }
+
+                else -> {}
             }
         }
     }

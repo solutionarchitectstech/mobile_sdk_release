@@ -65,9 +65,12 @@ class BannerItemHolder(private val binding: RecyclerViewItemBinding) :
                 is BannerLoadContentFail -> {
                     println("BannerLoadContentFail: ${event.throwable}")
                 }
+
                 is BannerCloseButtonClick -> {
                     println("BannerCloseButtonClick: ${event.placementId}")
                 }
+
+                else -> {}
             }
         }
     }

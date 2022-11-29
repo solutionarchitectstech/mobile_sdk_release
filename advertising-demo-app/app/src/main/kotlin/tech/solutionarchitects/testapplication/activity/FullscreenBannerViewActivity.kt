@@ -65,6 +65,8 @@ class FullscreenBannerViewActivity : AppCompatActivity() {
                     println("BannerCloseButtonClick: ${event.placementId}")
                     finish()
                 }
+
+                else -> {}
             }
         }
     }
