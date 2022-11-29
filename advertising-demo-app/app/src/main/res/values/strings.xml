@@ -1,0 +1,63 @@
+<!--
+  ~ Copyright © Gusev Andrew, Emelianov Andrew, Spinov Dmitry [collectively referred as the Authors], 2017-2022 - All Rights Reserved
+  ~ [NOTICE: All information contained herein is, and remains the property of the Authors.](notice: All information contained herein is, and remains the property of the Authors.)
+  ~ The intellectual and technical concepts contained herein are proprietary to the Authors
+  ~ and may be covered by any existing patents of any country in the world, patents in
+  ~ process, and are protected by trade secret or copyright law.
+  ~
+  ~ Dissemination of this information or reproduction of this material is strictly forbidden unless prior
+  ~ written permission is obtained from the Authors. Access to the source code contained herein is hereby forbidden
+  ~ to anyone except persons (natural person, corporate or unincorporated body, whether or not having a separate
+  ~ legal personality, and that person’s personal representatives, and successors)
+  ~ the Authors have granted permission and who have executed Confidentiality and Non-disclosure agreements
+  ~ explicitly covering such access.
+  ~
+  ~ The copyright notice above does not provide evidence of any actual or intended publication or disclosure
+  ~ of this source code, which in
+  -->
+
+<resources>
+    <string name="app_name">AdvertisingSDK</string>
+    <string name="title_activity_new_banner">NewBannerActivity</string>
+
+    <string name="size_header" translatable="false">Size</string>
+
+    <!-- Size Preferences -->
+    <string name="sizes">Sizes</string>
+
+    <string name="type_of_banner">Type of banner</string>
+    <string name="placementId">PlacementId</string>
+
+    <string name="add_advertisement">Add advertisement</string>
+    <string name="init_lib">Initialize library</string>
+    <string name="example_240x320_400x500">Example: 240x320;400x500</string>
+    <string name="example_1234">Example: 1234</string>
+    <string name="example_15">Example: 15</string>
+    <string name="refresh">Refresh</string>
+    <string name="timeout">Timeout</string>
+    <string name="store_url_hint">URL of application in Google Play Store</string>
+    <string name="unique_developer_key">Unique developer key</string>
+    <string name="the_developer_s_secret_key_for_authorization_of_the_request">The developer\'s secret key for authorization of the request</string>
+    <string name="a_fallback_id_for_example_for_networks">A fallback id, for example for networks.</string>
+    <string name="the_unique_id_of_the_application_user_or_the_email_specified_during_the_registration_process">The unique id of the application user, or the email specified during the registration process</string>
+    <string name="user_id">User id</string>
+    <string name="tag_id">Tag id</string>
+    <string name="api_secret">Api secret</string>
+    <string name="store_url">Store url</string>
+    <string name="api_key">API key</string>
+    <string name="external_exception">External Exception</string>
+    <string name="post_request_url">Request url</string>
+    <string name="http_url">/something or http(s)://url</string>
+    <string name="base_url">Base url</string>
+    <string name="open_logs">Open logs</string>
+    <string name="enable_add_logs">Enable logs</string>
+    <string name="banner_2">Banner 2</string>
+    <string name="show">Show</string>
+    <string name="id_of_publisher">ID of publisher</string>
+    <string name="publisher_id">Publisher ID</string>
+    <string name="enable_compression">Enable compression</string>
+    <string name="tracking_base_url">Tracking base URL</string>
+    <string name="open_banner_view">XML-layout</string>
+    <string name="open_programmatically_view">programmatically-layout</string>
+    <string name="open_recycler_view">Recycler-View</string>
+</resources>

@@ -31,7 +31,7 @@ Ask the SDK team to give them to you.
 
 **Ads SDK version**: 0.1.3
 
-**Demo**: [solutionarchitectstech:mobile_sdk_demo](https://github.com/solutionarchitectstech/mobile_sdk_demo)
+**Demo**: [advertising-demo-app](advertising-demo-app/)
 
 **Stable relase**: [solutionarchitectstech:mobile_sdk_release](https://github.com/solutionarchitectstech/mobile_sdk_release)
 
@@ -107,30 +107,29 @@ TechAdvertising.init(
 )
 ```
 
-[See demo example](https://github.com/solutionarchitectstech/mobile_sdk_demo/)
-
 ### Interaction with Tracking API
 
-Ads SDK aslo includes [Tracking SDK](sdk-tracker-android.md). The Tracker is initialized during the initialization of the advertising SDK.
+Ads SDK also includes [Tracking SDK](https://github.com/solutionarchitectstech/android_tracker_sdk_release). The Tracker is initialized during the initialization of the advertising SDK.
 The tracker is accessed via `TechAdvetrising`:
 
 ```kotlin
 TechAdvertising.tracker.event(event)
 ```
 
-More details about the methods and events of the Tracking SDK are written in a separate [section](sdk-tracker-android.md).
+More details about the methods and events of the tracker are written in the [Tracking SDK](https://github.com/solutionarchitectstech/android_tracker_sdk_release).
 
 ## Display banner
 
-![banner-view](sdk-ads-android.gif)
+![banner-view](advertising-demo-app/README_md/sdk-ads-android.gif)
 
-To request and display banner ads, call the method  `BannerView.load()` :
+To request and display banner ads, call the method  `BannerView.load()`:
 
 ```kotlin
 banner.load(
     placementId: String,
     sizes: List<Size>,
-    listener: TechAdvertisingListener? = null)
+    listener: TechAdvertisingListener? = null
+)
 ```
 
 - `placementId` - (required) ID of the ad slot. For example: `456`.
@@ -171,8 +170,6 @@ banner.load(
     }
 }
 ```
-
-[See demo example](https://github.com/solutionarchitectstech/mobile_sdk_demo/)
 
 ### Example of programmatically creating placements
 
