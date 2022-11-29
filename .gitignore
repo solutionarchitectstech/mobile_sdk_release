@@ -1,10 +1,17 @@
+# Ignore OS generated files and commons
+.DS_Store*
+ehthumbs.db
+Thumbs.db
+*.tmp
+*.log
+*.swp
+tmp
+null
+*~
+
+# GIT specific
+!.gitkeep
+
+# IntelliJ
 *.iml
-.gradle
-/local.properties
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
-local.properties
 .idea/
