@@ -48,7 +48,7 @@ class BannerItemHolder(private val binding: RecyclerViewItemBinding) :
         binding.bannerView.load(
             placementId = item.placementID.toString(),
             sizes = listOf(Size(width = 300, height = 150)),
-            closeButtonType = CloseButtonType.NONE
+            closeButtonType = CloseButtonType.None
         ) { event ->
             when (event) {
                 is LoadDataSuccess -> {
