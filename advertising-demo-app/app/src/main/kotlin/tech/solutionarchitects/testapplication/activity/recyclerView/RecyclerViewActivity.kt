@@ -47,8 +47,20 @@ class RecyclerViewActivity : AppCompatActivity() {
 
     private val items: List<Item>
         get() {
-            return (0..20).toList().map {
-                if (it % 2 == 0) BannerItem(placementID = it) else EmptyItem
+            return mutableListOf<Item>().also {
+                it.addAll(
+                    (0..6).toList().map { counter ->
+                        EmptyItem(counter)
+                    }
+                )
+                it.add(
+                    BannerItem(placementID = 1, order = it.size)
+                )
+                it.addAll(
+                    (0..5).toList().map {counter ->
+                        EmptyItem(counter)
+                    }
+                )
             }
         }
 }

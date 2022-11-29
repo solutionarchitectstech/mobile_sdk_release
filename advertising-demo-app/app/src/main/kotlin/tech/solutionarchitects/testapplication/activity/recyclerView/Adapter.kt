@@ -25,8 +25,8 @@ import tech.solutionarchitects.testapplication.databinding.RecyclerViewItemBindi
 
 
 sealed interface Item
-data class BannerItem(val placementID: Int) : Item
-object EmptyItem : Item
+data class BannerItem(val placementID: Int, val order: Int) : Item
+data class EmptyItem(val order: Int) : Item
 
 class Adapter(private val dataSet: List<Item>) :
     RecyclerView.Adapter<BannerItemHolder>() {

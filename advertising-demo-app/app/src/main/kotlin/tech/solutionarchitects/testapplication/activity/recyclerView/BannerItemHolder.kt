@@ -31,43 +31,42 @@ class BannerItemHolder(private val binding: RecyclerViewItemBinding) :
     fun bind(item: Item) {
         when (item) {
             is BannerItem -> bindBannerView(item)
-            EmptyItem -> bindEmptyView(item)
+            is EmptyItem -> bindEmptyView(item)
         }
     }
 
-    private fun bindEmptyView(item: Item) {
-        binding.textView.visibility = View.INVISIBLE
+    private fun bindEmptyView(item: EmptyItem) {
         binding.bannerView.visibility = View.INVISIBLE
+        binding.textView.text = "#: ${item.order}"
     }
 
     private fun bindBannerView(item: BannerItem) {
-        binding.textView.visibility = View.VISIBLE
         binding.bannerView.visibility = View.VISIBLE
 
-        binding.textView.text = "placementID: ${item.placementID}"
+        binding.textView.text = "#: ${item.order}"
         binding.bannerView.load(
             placementId = item.placementID.toString(),
-            sizes = listOf(Size(width = 300, height = 150)),
+            sizes = listOf(Size(width = 1024, height = 768)),
             closeButtonType = CloseButtonType.None
         ) { event ->
             when (event) {
-                is LoadDataSuccess -> {
-                    println("LoadDataSuccess: ${event.placementId}")
+                is BannerLoadDataSuccess -> {
+                    println("BannerLoadDataSuccess: ${event.placementId}")
                 }
 
-                is LoadDataFail -> {
-                    println("LoadDataFail: ${event.throwable}")
+                is BannerLoadDataFail -> {
+                    println("BannerLoadDataFail: ${event.throwable}")
                 }
 
-                is LoadContentSuccess -> {
-                    println("LoadContentSuccess: ${event.placementId}")
+                is BannerLoadContentSuccess -> {
+                    println("BannerLoadContentSuccess: ${event.placementId}")
                 }
 
-                is LoadContentFail -> {
-                    println("LoadContentFail: ${event.throwable}")
+                is BannerLoadContentFail -> {
+                    println("BannerLoadContentFail: ${event.throwable}")
                 }
-                is CloseButtonClick -> {
-                    println("CloseButtonClick: ${event.placementId}")
+                is BannerCloseButtonClick -> {
+                    println("BannerCloseButtonClick: ${event.placementId}")
                 }
             }
         }

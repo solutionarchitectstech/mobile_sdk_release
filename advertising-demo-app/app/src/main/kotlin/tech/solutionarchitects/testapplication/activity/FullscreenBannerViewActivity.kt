@@ -41,28 +41,28 @@ class FullscreenBannerViewActivity : AppCompatActivity() {
 
     private fun bannerViewLayoutTest() {
         binding.bannerView.load(
-            placementId = "1",
-            sizes = listOf(Size(width = 300, height = 150))
+            placementId = "TestBanner",
+            sizes = listOf(Size(width = 400, height = 156))
         ) { event ->
             when (event) {
-                is LoadDataSuccess -> {
-                    println("LoadDataSuccess: ${event.placementId}")
+                is BannerLoadDataSuccess -> {
+                    println("BannerLoadDataSuccess: ${event.placementId}")
                 }
 
-                is LoadDataFail -> {
-                    println("LoadDataFail: ${event.throwable}")
+                is BannerLoadDataFail -> {
+                    println("BannerLoadDataFail: ${event.throwable}")
                 }
 
-                is LoadContentSuccess -> {
-                    println("LoadContentSuccess: ${event.placementId}")
+                is BannerLoadContentSuccess -> {
+                    println("BannerLoadContentSuccess: ${event.placementId}")
                 }
 
-                is LoadContentFail -> {
-                    println("LoadContentFail: ${event.throwable}")
+                is BannerLoadContentFail -> {
+                    println("BannerLoadContentFail: ${event.throwable}")
                 }
 
-                is CloseButtonClick -> {
-                    println("CloseButtonClick: ${event.placementId}")
+                is BannerCloseButtonClick -> {
+                    println("BannerCloseButtonClick: ${event.placementId}")
                     finish()
                 }
             }
