@@ -34,7 +34,7 @@ class TechApp : Application() {
             partnerId = "1",
             uid = "uid@google.com",
             baseUrl = "https://<YOUR_END_POINT>/",
-            trackingBaseUrl = "https://<YOUR_LOG_END_POINT>/",
+            trackingBaseUrl = "https://<YOUR_TRACKING_EVENTS_END_POINT>/",
             debugMode = true
         )
     }

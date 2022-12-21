@@ -18,51 +18,44 @@
 
 package tech.solutionarchitects.testapplication.activity
 
+import android.app.Activity
 import android.os.Bundle
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
-import tech.solutionarchitects.advertisingsdk.core.model.Size
-import tech.solutionarchitects.advertisingsdk.listener.*
-import tech.solutionarchitects.testapplication.databinding.ActivityFullscreenBannerViewBinding
+import tech.solutionarchitects.advertisingsdk.TechAdvertising
+import tech.solutionarchitects.testapplication.databinding.ActivitySettingsBinding
+import tech.solutionarchitects.testapplication.settings.SettingsStorage
 
-class FullscreenBannerViewActivity : AppCompatActivity() {
+class SettingsActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityFullscreenBannerViewBinding
+    private lateinit var binding: ActivitySettingsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityFullscreenBannerViewBinding.inflate(layoutInflater)
+        binding = ActivitySettingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.saveButton.setOnClickListener {
+            val url = binding.baseUrlTextEdit.text.toString()
+            SettingsStorage.baseUrl = url
+            TechAdvertising.setBaseUrl(url, this)
+            finish()
+        }
     }
 
     override fun onResume() {
         super.onResume()
-        bannerViewLayoutTest()
-    }
+        binding.baseUrlTextEdit.setText(SettingsStorage.baseUrl)
+        binding.baseUrlTextEdit.postDelayed({
+            binding.baseUrlTextEdit.requestFocus()
+            val inputMethodManager =
+                getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.showSoftInput(
+                binding.baseUrlTextEdit,
+                InputMethodManager.SHOW_IMPLICIT
+            )
+            binding.baseUrlTextEdit.setSelection(binding.baseUrlTextEdit.text?.length ?: 0)
 
-    private fun bannerViewLayoutTest() {
-        binding.bannerView.load(
-            placementId = "TestBanner",
-            sizes = listOf(Size(width = 400, height = 156))
-        ) { event ->
-            when (event) {
-                is BannerLoadDataSuccess -> {
-                    println("BannerLoadDataSuccess: ${event.placementId}")
-                }
-                is BannerLoadDataFail -> {
-                    println("BannerLoadDataFail: ${event.throwable}")
-                }
-                is BannerLoadContentSuccess -> {
-                    println("BannerLoadContentSuccess: ${event.placementId}")
-                }
-                is BannerLoadContentFail -> {
-                    println("BannerLoadContentFail: ${event.throwable}")
-                }
-                is BannerCloseButtonClick -> {
-                    println("BannerCloseButtonClick: ${event.placementId}")
-                    finish()
-                }
-                else -> {}
-            }
-        }
+        }, 500)
     }
 }

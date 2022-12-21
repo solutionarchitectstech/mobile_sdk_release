@@ -157,24 +157,19 @@ banner.load(
       is BannerLoadDataSuccess -> {
         println("BannerLoadDataSuccess: ${event.placementId}")
       }
-
       is BannerLoadDataFail -> {
         println("BannerLoadDataFail: ${event.throwable}")
       }
-
       is BannerLoadContentSuccess -> {
         println("BannerLoadContentSuccess: ${event.placementId}")
       }
-
       is BannerLoadContentFail -> {
         println("BannerLoadContentFail: ${event.throwable}")
       }
-
       is BannerCloseButtonClick -> {
         println("BannerCloseButtonClick: ${event.placementId}")
         finish()
       }
-
       else -> {}
     }
 }
@@ -201,24 +196,19 @@ bannerView.load(
       is BannerLoadDataSuccess -> {
         println("BannerLoadDataSuccess: ${event.placementId}")
       }
-
       is BannerLoadDataFail -> {
         println("BannerLoadDataFail: ${event.throwable}")
       }
-
       is BannerLoadContentSuccess -> {
         println("BannerLoadContentSuccess: ${event.placementId}")
       }
-
       is BannerLoadContentFail -> {
         println("BannerLoadContentFail: ${event.throwable}")
       }
-
       is BannerCloseButtonClick -> {
         println("BannerCloseButtonClick: ${event.placementId}")
         finish()
       }
-
       else -> {}
     }
 }

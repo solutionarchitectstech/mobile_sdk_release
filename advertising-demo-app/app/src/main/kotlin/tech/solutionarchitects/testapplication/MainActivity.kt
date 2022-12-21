@@ -21,8 +21,7 @@ package tech.solutionarchitects.testapplication
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import tech.solutionarchitects.testapplication.activity.BannerViewActivity
-import tech.solutionarchitects.testapplication.activity.FullscreenBannerViewActivity
+import tech.solutionarchitects.testapplication.activity.*
 import tech.solutionarchitects.testapplication.activity.recyclerView.RecyclerViewActivity
 import tech.solutionarchitects.testapplication.databinding.ActivityMainBinding
 
@@ -45,6 +44,14 @@ class MainActivity : AppCompatActivity() {
 
         binding.recyclerViewScreenViewButton.setOnClickListener {
             startActivity(Intent(this, RecyclerViewActivity::class.java))
+        }
+
+        binding.openNativeBannerView.setOnClickListener {
+            startActivity(Intent(this, NativeBannerActivity::class.java))
+        }
+
+        binding.scrollableLayoutScreenButton.setOnClickListener {
+            startActivity(Intent(this, ScrollableActivityWithBanners::class.java))
         }
     }
 }
