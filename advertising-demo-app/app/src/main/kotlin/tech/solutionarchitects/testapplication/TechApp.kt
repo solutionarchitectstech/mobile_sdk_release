@@ -33,8 +33,8 @@ class TechApp : Application() {
             storeUrl = "",
             partnerId = "1",
             uid = "uid@google.com",
-            baseUrl = "https://<YOUR_END_POINT>/",
-            trackingBaseUrl = "https://<YOUR_TRACKING_EVENTS_END_POINT>/",
+            baseUrl = "https://<YOUR_ADVERTISING_ENDPOINT>/",
+            trackingBaseUrl = "https://<YOUR_TRACKING_EVENT_ENDPOINT>/",
             debugMode = true
         )
     }
