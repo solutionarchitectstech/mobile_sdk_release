@@ -29,7 +29,7 @@ Ask the SDK team to give them to you.
   For example: `"https://track.server.com"`
   :::
 
-**Ads SDK version**: 0.1.4
+**Ads SDK version**: 0.1.6
 
 **Demo**: [advertising-demo-app](advertising-demo-app/)
 
@@ -49,7 +49,7 @@ Ask the SDK team to give them to you.
 ```-vue
 dependencies {
     //... other dependencies
-    implementation 'com.github.solutionarchitectstech:mobile_sdk_release:0.1.4'
+    implementation 'com.github.solutionarchitectstech:mobile_sdk_release:0.1.6'
 
     //... other dependencies
 }
