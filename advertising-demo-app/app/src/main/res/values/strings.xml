@@ -60,4 +60,6 @@
     <string name="open_banner_view">XML-layout</string>
     <string name="open_programmatically_view">programmatically-layout</string>
     <string name="open_recycler_view">Recycler-View</string>
+    <string name="native_banner_view">Native banner view</string>
+    <string name="scrollable_layout_screen_button">Scrollable layout</string>
 </resources>

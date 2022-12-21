@@ -29,7 +29,7 @@ Ask the SDK team to give them to you.
   For example: `"https://track.server.com"`
   :::
 
-**Ads SDK version**: 0.1.3
+**Ads SDK version**: 0.1.6
 
 **Demo**: [advertising-demo-app](advertising-demo-app/)
 
@@ -49,16 +49,11 @@ Ask the SDK team to give them to you.
 ```-vue
 dependencies {
     //... other dependencies
-    implementation 'com.github.solutionarchitectstech:mobile_sdk_release:0.1.3'
+    implementation 'com.github.solutionarchitectstech:mobile_sdk_release:0.1.6'
 
     //... other dependencies
 }
 ```
-
-<!--
-- Подключение AAR файла
-
-  также можно скачать Android Ads SDK в формате aar-файла и добавить её в проект. URL для скачивания: [https://assets.ad4tech.net/sdk/ads-sdk-android-0.0.10.aar](https://assets.ad4tech.net/sdk/ads-sdk-android-0.0.10.aar) -->
 
 ## SDK initialisation
 
@@ -162,24 +157,19 @@ banner.load(
       is BannerLoadDataSuccess -> {
         println("BannerLoadDataSuccess: ${event.placementId}")
       }
-
       is BannerLoadDataFail -> {
         println("BannerLoadDataFail: ${event.throwable}")
       }
-
       is BannerLoadContentSuccess -> {
         println("BannerLoadContentSuccess: ${event.placementId}")
       }
-
       is BannerLoadContentFail -> {
         println("BannerLoadContentFail: ${event.throwable}")
       }
-
       is BannerCloseButtonClick -> {
         println("BannerCloseButtonClick: ${event.placementId}")
         finish()
       }
-
       else -> {}
     }
 }
@@ -206,24 +196,19 @@ bannerView.load(
       is BannerLoadDataSuccess -> {
         println("BannerLoadDataSuccess: ${event.placementId}")
       }
-
       is BannerLoadDataFail -> {
         println("BannerLoadDataFail: ${event.throwable}")
       }
-
       is BannerLoadContentSuccess -> {
         println("BannerLoadContentSuccess: ${event.placementId}")
       }
-
       is BannerLoadContentFail -> {
         println("BannerLoadContentFail: ${event.throwable}")
       }
-
       is BannerCloseButtonClick -> {
         println("BannerCloseButtonClick: ${event.placementId}")
         finish()
       }
-
       else -> {}
     }
 }

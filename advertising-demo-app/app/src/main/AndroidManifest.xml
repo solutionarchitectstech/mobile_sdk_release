@@ -34,6 +34,14 @@
         <activity
             android:name="tech.solutionarchitects.testapplication.activity.recyclerView.RecyclerViewActivity"
             android:exported="true" />
+
+        <activity
+            android:name=".activity.NativeBannerActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".activity.ScrollableActivityWithBanners"
+            android:exported="true" />
     </application>
 
 </manifest>
