@@ -36,6 +36,19 @@
             android:exported="true" />
 
         <activity
+            android:name="tech.solutionarchitects.testapplication.activity.VastVideoActivity"
+            android:configChanges="orientation|screenSize"
+            android:exported="true" />
+
+        <activity
+            android:name="tech.solutionarchitects.testapplication.activity.VastAudioActivity"
+            android:exported="true" />
+
+        <activity
+            android:name="tech.solutionarchitects.testapplication.activity.SettingsActivity"
+            android:exported="true" />
+
+        <activity
             android:name=".activity.NativeBannerActivity"
             android:exported="true" />
 

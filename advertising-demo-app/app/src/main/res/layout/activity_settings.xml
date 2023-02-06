@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright © Gusev Andrew, Emelianov Andrew, Spinov Dmitry [collectively referred as the Authors], 2017-2022 - All Rights Reserved
   ~ [NOTICE: All information contained herein is, and remains the property of the Authors.](notice: All information contained herein is, and remains the property of the Authors.)
   ~ The intellectual and technical concepts contained herein are proprietary to the Authors
@@ -20,17 +19,17 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/mainLayout"
-    tools:context=".activity.BannerViewActivity">
+    tools:context=".activity.SettingsActivity"
+    android:padding="@dimen/spacing_16dp">
 
-    <tech.solutionarchitects.advertisingsdk.core.view.banner.BannerView
-        android:id="@+id/bannerView"
-        android:layout_width="300dp"
-        android:layout_height="117dp"
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/rtbSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/use_rtb_for_audio_advertisement"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
+        app:layout_constraintStart_toStartOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

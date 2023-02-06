@@ -56,10 +56,14 @@
     <string name="id_of_publisher">ID of publisher</string>
     <string name="publisher_id">Publisher ID</string>
     <string name="enable_compression">Enable compression</string>
-    <string name="tracking_base_url">Tracking base URL</string>
     <string name="open_banner_view">XML-layout</string>
     <string name="open_programmatically_view">programmatically-layout</string>
     <string name="open_recycler_view">Recycler-View</string>
+    <string name="audio_player">Audio player</string>
+    <string name="video_player">Video Player</string>
+    <string name="settings">Settings</string>
+    <string name="save">Save</string>
     <string name="native_banner_view">Native banner view</string>
     <string name="scrollable_layout_screen_button">Scrollable layout</string>
+    <string name="use_rtb_for_audio_advertisement">Use RTB for audio advertisement</string>
 </resources>

@@ -16,53 +16,51 @@
  * of this source code, which in
  */
 
-package tech.solutionarchitects.testapplication.activity
+package tech.solutionarchitects.testapplication.activity.recyclerView
 
 import android.os.Bundle
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
-import tech.solutionarchitects.advertisingsdk.core.model.Size
-import tech.solutionarchitects.advertisingsdk.listener.*
-import tech.solutionarchitects.testapplication.databinding.ActivityFullscreenBannerViewBinding
+import androidx.recyclerview.widget.LinearLayoutManager
+import tech.solutionarchitects.testapplication.databinding.ActivityRecyclerViewBinding
 
-class FullscreenBannerViewActivity : AppCompatActivity() {
+class RecyclerViewActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityFullscreenBannerViewBinding
+    private lateinit var binding: ActivityRecyclerViewBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityFullscreenBannerViewBinding.inflate(layoutInflater)
+        binding = ActivityRecyclerViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        with(binding.recyclerView) {
+            val lm = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
+            layoutManager = lm
+        }
     }
 
     override fun onResume() {
         super.onResume()
-        bannerViewLayoutTest()
+        binding.recyclerView.adapter = Adapter(items)
     }
 
-    private fun bannerViewLayoutTest() {
-        binding.bannerView.load(
-            placementId = "TestBanner",
-            sizes = listOf(Size(width = 400, height = 156))
-        ) { event ->
-            when (event) {
-                is BannerLoadDataSuccess -> {
-                    println("BannerLoadDataSuccess: ${event.placementId}")
-                }
-                is BannerLoadDataFail -> {
-                    println("BannerLoadDataFail: ${event.throwable}")
-                }
-                is BannerLoadContentSuccess -> {
-                    println("BannerLoadContentSuccess: ${event.placementId}")
-                }
-                is BannerLoadContentFail -> {
-                    println("BannerLoadContentFail: ${event.throwable}")
-                }
-                is BannerCloseButtonClick -> {
-                    println("BannerCloseButtonClick: ${event.placementId}")
-                    finish()
-                }
-                else -> {}
+    private val items: List<Item>
+        get() {
+            return mutableListOf<Item>().also {
+                it.addAll(
+                    (0..6).toList().map { counter ->
+                        EmptyItem(counter)
+                    }
+                )
+                it.add(
+                    BannerItem(placementID = 1, order = it.size)
+                )
+                it.addAll(
+                    (0..5).toList().map {counter ->
+                        EmptyItem(counter)
+                    }
+                )
             }
         }
-    }
 }

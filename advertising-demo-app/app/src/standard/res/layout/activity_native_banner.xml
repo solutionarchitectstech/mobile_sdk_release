@@ -4,11 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <tech.solutionarchitects.advertisingsdk.core.view.banner.NativeBannerView
+    <tech.solutionarchitects.advertisingsdk.api.view.banner.NativeBannerView
         android:id="@+id/nativeBannerView"
-        android:layout_width="480px"
-        android:layout_height="640px"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:layout_width="728px"
+        android:layout_height="90px"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
