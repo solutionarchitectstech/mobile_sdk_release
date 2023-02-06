@@ -20,7 +20,10 @@ class NativeBannerActivity : AppCompatActivity() {
         super.onResume()
         binding.nativeBannerView.load(
             placementId = "TestBanner",
-            closeButtonType = CloseButtonType.Countdown(milliseconds = 3_000)
+            closeButtonType = CloseButtonType.Countdown(milliseconds = 3_000),
+            //floorPrice = 2f,
+            //currency = "RUB",
+            //customParams = mapOf("example" to "value", "example2" to "value2")
         ) { event ->
             when (event) {
                 is BannerLoadDataSuccess -> {

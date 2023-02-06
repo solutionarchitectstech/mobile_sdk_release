@@ -16,36 +16,38 @@
  * of this source code, which in
  */
 
-package tech.solutionarchitects.testapplication.activity
+package tech.solutionarchitects.testapplication.activity.recyclerView
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.view.View
+import androidx.recyclerview.widget.RecyclerView
 import tech.solutionarchitects.advertisingsdk.core.model.Size
 import tech.solutionarchitects.advertisingsdk.listener.*
 import tech.solutionarchitects.advertisingsdk.types.CloseButtonType
-import tech.solutionarchitects.testapplication.databinding.ActivityBannerViewBinding
+import tech.solutionarchitects.testapplication.databinding.RecyclerViewItemBinding
 
-class BannerViewActivity : AppCompatActivity() {
+class BannerItemHolder(private val binding: RecyclerViewItemBinding) :
+    RecyclerView.ViewHolder(binding.root) {
 
-    private lateinit var binding: ActivityBannerViewBinding
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityBannerViewBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    fun bind(item: Item) {
+        when (item) {
+            is BannerItem -> bindBannerView(item)
+            is EmptyItem -> bindEmptyView(item)
+        }
     }
 
-    override fun onResume() {
-        super.onResume()
-        bannerViewLayoutTest()
+    private fun bindEmptyView(item: EmptyItem) {
+        binding.bannerView.visibility = View.INVISIBLE
+        binding.textView.text = "#: ${item.order}"
     }
 
-    private fun bannerViewLayoutTest() {
+    private fun bindBannerView(item: BannerItem) {
+        binding.bannerView.visibility = View.VISIBLE
+
+        binding.textView.text = "#: ${item.order}"
         binding.bannerView.load(
-            placementId = "1",
+            placementId = item.placementID.toString(),
             sizes = listOf(Size(width = 1024, height = 768)),
-            closeButtonType = CloseButtonType.Countdown(milliseconds = 3_000),
-            // customParams = mapOf("example" to "value", "example2" to "value2")
+            closeButtonType = CloseButtonType.None
         ) { event ->
             when (event) {
                 is BannerLoadDataSuccess -> {
@@ -62,10 +64,10 @@ class BannerViewActivity : AppCompatActivity() {
                 }
                 is BannerCloseButtonClick -> {
                     println("BannerCloseButtonClick: ${event.placementId}")
-                    finish()
                 }
                 else -> {}
             }
         }
     }
+
 }

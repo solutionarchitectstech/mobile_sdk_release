@@ -39,7 +39,7 @@
                 android:layout_height="300dp"
                 android:background="@color/teal_200"/>
 
-            <tech.solutionarchitects.advertisingsdk.core.view.banner.BannerView
+            <tech.solutionarchitects.advertisingsdk.api.view.banner.BannerView
                 android:id="@+id/bannerView"
                 android:layout_width="300dp"
                 android:layout_height="117dp" />

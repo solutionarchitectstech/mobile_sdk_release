@@ -24,6 +24,7 @@ import androidx.appcompat.app.AppCompatActivity
 import tech.solutionarchitects.testapplication.activity.*
 import tech.solutionarchitects.testapplication.activity.recyclerView.RecyclerViewActivity
 import tech.solutionarchitects.testapplication.databinding.ActivityMainBinding
+import tech.solutionarchitects.testapplication.activity.SettingsActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -46,6 +47,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, RecyclerViewActivity::class.java))
         }
 
+        binding.settingsButton.setOnClickListener {
+            startActivity(Intent(this, SettingsActivity::class.java))
+        }
+
         binding.openNativeBannerView.setOnClickListener {
             startActivity(Intent(this, NativeBannerActivity::class.java))
         }
@@ -54,4 +59,5 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, ScrollableActivityWithBanners::class.java))
         }
     }
+
 }

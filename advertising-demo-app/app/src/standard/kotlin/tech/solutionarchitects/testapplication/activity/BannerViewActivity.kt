@@ -16,38 +16,38 @@
  * of this source code, which in
  */
 
-package tech.solutionarchitects.testapplication.activity.recyclerView
+package tech.solutionarchitects.testapplication.activity
 
-import android.view.View
-import androidx.recyclerview.widget.RecyclerView
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import tech.solutionarchitects.advertisingsdk.core.model.Size
 import tech.solutionarchitects.advertisingsdk.listener.*
 import tech.solutionarchitects.advertisingsdk.types.CloseButtonType
-import tech.solutionarchitects.testapplication.databinding.RecyclerViewItemBinding
+import tech.solutionarchitects.testapplication.databinding.ActivityBannerViewBinding
 
-class BannerItemHolder(private val binding: RecyclerViewItemBinding) :
-    RecyclerView.ViewHolder(binding.root) {
+class BannerViewActivity : AppCompatActivity() {
 
-    fun bind(item: Item) {
-        when (item) {
-            is BannerItem -> bindBannerView(item)
-            is EmptyItem -> bindEmptyView(item)
-        }
+    private lateinit var binding: ActivityBannerViewBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityBannerViewBinding.inflate(layoutInflater)
+        setContentView(binding.root)
     }
 
-    private fun bindEmptyView(item: EmptyItem) {
-        binding.bannerView.visibility = View.INVISIBLE
-        binding.textView.text = "#: ${item.order}"
+    override fun onResume() {
+        super.onResume()
+        bannerViewLayoutTest()
     }
 
-    private fun bindBannerView(item: BannerItem) {
-        binding.bannerView.visibility = View.VISIBLE
-
-        binding.textView.text = "#: ${item.order}"
+    private fun bannerViewLayoutTest() {
         binding.bannerView.load(
-            placementId = item.placementID.toString(),
+            placementId = "1",
             sizes = listOf(Size(width = 1024, height = 768)),
-            closeButtonType = CloseButtonType.None
+            closeButtonType = CloseButtonType.Countdown(milliseconds = 3_000),
+            //floorPrice = 2f,
+            //currency = "RUB",
+            //customParams = mapOf("example" to "value", "example2" to "value2")
         ) { event ->
             when (event) {
                 is BannerLoadDataSuccess -> {
@@ -64,10 +64,9 @@ class BannerItemHolder(private val binding: RecyclerViewItemBinding) :
                 }
                 is BannerCloseButtonClick -> {
                     println("BannerCloseButtonClick: ${event.placementId}")
+                    finish()
                 }
-                else -> {}
             }
         }
     }
-
 }

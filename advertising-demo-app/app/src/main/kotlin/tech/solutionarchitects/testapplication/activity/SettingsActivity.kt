@@ -16,26 +16,33 @@
  * of this source code, which in
  */
 
-package tech.solutionarchitects.testapplication
+package tech.solutionarchitects.testapplication.activity
 
-import android.app.Application
-import tech.solutionarchitects.advertisingsdk.TechAdvertising
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
+import tech.solutionarchitects.testapplication.databinding.ActivitySettingsBinding
+import tech.solutionarchitects.testapplication.settings.SettingsData
 
-/**
- * Created by Maxim Firsov on 21.08.2022.
- * firsoffmaxim@gmail.com
- */
-class TechApp : Application() {
-    override fun onCreate() {
-        super.onCreate()
-        TechAdvertising.init(
-            context = applicationContext,
-            storeUrl = "",
-            partnerId = "1",
-            uid = "uid@google.com",
-            baseUrl = "https://<YOUR_ADVERTISING_ENDPOINT>/",
-            trackingBaseUrl = "https://<YOUR_TRACKING_EVENT_ENDPOINT>/",
-            debugMode = true
-        )
+class SettingsActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivitySettingsBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivitySettingsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.rtbSwitch.setOnCheckedChangeListener { _, isChecked ->
+            SettingsData.rtb.value = isChecked
+        }
+
+        lifecycleScope.launch{
+            SettingsData.rtb.collectLatest {
+                binding.rtbSwitch.isChecked = it
+            }
+        }
     }
 }
