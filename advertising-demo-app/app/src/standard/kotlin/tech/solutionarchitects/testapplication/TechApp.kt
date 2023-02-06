@@ -40,7 +40,6 @@ class TechApp : Application() {
                 context = applicationContext,
                 storeUrl = "",
                 uid = "uid@google.com",
-                baseUrl = "https://<YOUR_ADVERTISING_ENDPOINT>/",
                 initConfig = InitConfig(
                         core = CoreDestination(
                                 bannerUrl = "https://<YOUR_ADVERTISING_ENDPOINT>/",
