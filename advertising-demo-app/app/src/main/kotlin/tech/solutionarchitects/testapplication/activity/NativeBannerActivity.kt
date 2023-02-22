@@ -19,31 +19,13 @@ class NativeBannerActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         binding.nativeBannerView.load(
-            placementId = "TestBanner",
+            placementId = "YOUR_PLACEMENT_ID",
             closeButtonType = CloseButtonType.Countdown(milliseconds = 3_000),
             //floorPrice = 2f,
             //currency = "RUB",
             //customParams = mapOf("example" to "value", "example2" to "value2")
         ) { event ->
-            when (event) {
-                is BannerLoadDataSuccess -> {
-                    println("LoadDataSuccess: ${event.placementId}")
-                }
-                is BannerLoadDataFail -> {
-                    println("LoadDataFail: ${event.throwable}")
-                }
-                is BannerLoadContentSuccess -> {
-                    println("LoadContentSuccess: ${event.placementId}")
-                }
-                is BannerLoadContentFail -> {
-                    println("LoadContentFail: ${event.throwable}")
-                }
-                is BannerCloseButtonClick -> {
-                    println("CloseButtonClick: ${event.placementId}")
-                    finish()
-                }
-                else -> {}
-            }
+            println("NativeBannerEvent: $event")
         }
     }
 }

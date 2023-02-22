@@ -20,29 +20,30 @@ package tech.solutionarchitects.testapplication.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
-import tech.solutionarchitects.testapplication.databinding.ActivitySettingsBinding
-import tech.solutionarchitects.testapplication.settings.SettingsData
+import tech.solutionarchitects.advertisingsdk.core.model.Size
+import tech.solutionarchitects.testapplication.databinding.ActivityFullscreenBannerViewBinding
 
-class SettingsActivity : AppCompatActivity() {
+class FullscreenBannerViewActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivitySettingsBinding
+    private lateinit var binding: ActivityFullscreenBannerViewBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySettingsBinding.inflate(layoutInflater)
+        binding = ActivityFullscreenBannerViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
+    }
 
-        binding.rtbSwitch.setOnCheckedChangeListener { _, isChecked ->
-            SettingsData.rtb.value = isChecked
-        }
+    override fun onResume() {
+        super.onResume()
+        bannerViewLayoutTest()
+    }
 
-        lifecycleScope.launch{
-            SettingsData.rtb.collectLatest {
-                binding.rtbSwitch.isChecked = it
-            }
+    private fun bannerViewLayoutTest() {
+        binding.bannerView.load(
+            placementId = "YOUR_PLACEMENT_ID",
+            sizes = listOf(Size(width = 400, height = 156))
+        ) { event ->
+            println("BannerEvent: $event")
         }
     }
 }
