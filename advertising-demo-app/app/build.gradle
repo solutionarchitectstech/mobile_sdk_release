@@ -25,13 +25,6 @@ android {
         }
     }
 
-    flavorDimensions "clients"
-    productFlavors {
-        standard {
-            getIsDefault().set(true)
-            dimension "clients"
-        }
-    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -53,7 +46,7 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.2'
     implementation 'com.jakewharton.timber:timber:5.0.1'
 
-    implementation 'com.github.solutionarchitectstech:mobile_sdk_release:0.2.0'
+    // implementation 'com.github.solutionarchitectstech:mobile_sdk_release:0.2.1'
 
     implementation 'androidx.preference:preference-ktx:1.2.0'
 

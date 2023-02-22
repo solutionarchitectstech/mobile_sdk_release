@@ -20,17 +20,20 @@ package tech.solutionarchitects.testapplication.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import tech.solutionarchitects.advertisingsdk.core.model.Size
-import tech.solutionarchitects.advertisingsdk.listener.*
 import tech.solutionarchitects.advertisingsdk.types.CloseButtonType
 import tech.solutionarchitects.testapplication.databinding.ActivityBannerViewBinding
 
 class BannerViewActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityBannerViewBinding
+    private lateinit var scope: CoroutineScope
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        scope = CoroutineScope(Dispatchers.Main)
         binding = ActivityBannerViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
@@ -42,31 +45,14 @@ class BannerViewActivity : AppCompatActivity() {
 
     private fun bannerViewLayoutTest() {
         binding.bannerView.load(
-            placementId = "1",
+            placementId = "YOUR_PLACEMENT_ID",
             sizes = listOf(Size(width = 1024, height = 768)),
             closeButtonType = CloseButtonType.Countdown(milliseconds = 3_000),
             //floorPrice = 2f,
             //currency = "RUB",
             //customParams = mapOf("example" to "value", "example2" to "value2")
         ) { event ->
-            when (event) {
-                is BannerLoadDataSuccess -> {
-                    println("BannerLoadDataSuccess: ${event.placementId}")
-                }
-                is BannerLoadDataFail -> {
-                    println("BannerLoadDataFail: ${event.throwable}")
-                }
-                is BannerLoadContentSuccess -> {
-                    println("BannerLoadContentSuccess: ${event.placementId}")
-                }
-                is BannerLoadContentFail -> {
-                    println("BannerLoadContentFail: ${event.throwable}")
-                }
-                is BannerCloseButtonClick -> {
-                    println("BannerCloseButtonClick: ${event.placementId}")
-                    finish()
-                }
-            }
+            println("BannerEvent: $event")
         }
     }
 }

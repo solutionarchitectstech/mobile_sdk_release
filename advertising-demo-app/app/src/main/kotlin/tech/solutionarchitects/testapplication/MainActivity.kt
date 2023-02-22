@@ -1,5 +1,5 @@
 /*
- * Copyright © Gusev Andrew, Emelianov Andrew, Spinov Dmitry [collectively referred as the Authors], 2017-2022 - All Rights Reserved
+ * Copyright © Gusev Andrew, Emelianov Andrew, Spinov Dmitry [collectively referred as the Authors], 2017 - All Rights Reserved
  * [NOTICE: All information contained herein is, and remains the property of the Authors.](notice: All information contained herein is, and remains the property of the Authors.)
  * The intellectual and technical concepts contained herein are proprietary to the Authors
  * and may be covered by any existing patents of any country in the world, patents in
@@ -24,7 +24,6 @@ import androidx.appcompat.app.AppCompatActivity
 import tech.solutionarchitects.testapplication.activity.*
 import tech.solutionarchitects.testapplication.activity.recyclerView.RecyclerViewActivity
 import tech.solutionarchitects.testapplication.databinding.ActivityMainBinding
-import tech.solutionarchitects.testapplication.activity.SettingsActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -47,16 +46,16 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, RecyclerViewActivity::class.java))
         }
 
-        binding.settingsButton.setOnClickListener {
-            startActivity(Intent(this, SettingsActivity::class.java))
-        }
-
         binding.openNativeBannerView.setOnClickListener {
             startActivity(Intent(this, NativeBannerActivity::class.java))
         }
 
         binding.scrollableLayoutScreenButton.setOnClickListener {
             startActivity(Intent(this, ScrollableActivityWithBanners::class.java))
+        }
+
+        binding.videoPlayerViewButton.setOnClickListener {
+            startActivity(Intent(this, VastVideoActivity::class.java))
         }
     }
 

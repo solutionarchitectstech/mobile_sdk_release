@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><!--
-  ~ Copyright © Gusev Andrew, Emelianov Andrew, Spinov Dmitry [collectively referred as the Authors], 2017-2022 - All Rights Reserved
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright © Gusev Andrew, Emelianov Andrew, Spinov Dmitry [collectively referred as the Authors], 2017 - All Rights Reserved
   ~ [NOTICE: All information contained herein is, and remains the property of the Authors.](notice: All information contained herein is, and remains the property of the Authors.)
   ~ The intellectual and technical concepts contained herein are proprietary to the Authors
   ~ and may be covered by any existing patents of any country in the world, patents in
@@ -15,21 +16,16 @@
   ~ The copyright notice above does not provide evidence of any actual or intended publication or disclosure
   ~ of this source code, which in
   -->
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mainLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activity.SettingsActivity"
-    android:padding="@dimen/spacing_16dp">
+    android:layout_height="match_parent">
 
-    <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/rtbSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/use_rtb_for_audio_advertisement"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+    <tech.solutionarchitects.advertisingsdk.api.view.banner.NativeBannerView
+        android:id="@+id/nativeBannerView"
+        android:layout_width="728px"
+        android:layout_height="90px"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
