@@ -21,9 +21,14 @@ package tech.solutionarchitects.testapplication
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import tech.solutionarchitects.testapplication.activity.*
+import tech.solutionarchitects.testapplication.activity.BannerViewActivity
+import tech.solutionarchitects.testapplication.activity.FullscreenBannerViewActivity
+import tech.solutionarchitects.testapplication.activity.NativeBannerActivity
+import tech.solutionarchitects.testapplication.activity.ScrollableActivityWithBanners
+import tech.solutionarchitects.testapplication.activity.VastVideoActivity
 import tech.solutionarchitects.testapplication.activity.recyclerView.RecyclerViewActivity
 import tech.solutionarchitects.testapplication.databinding.ActivityMainBinding
+import tech.solutionarchitects.testapplication.util.requestLocation
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,6 +38,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        requestLocation()
 
         binding.openBannerViewButton.setOnClickListener {
             startActivity(Intent(this, BannerViewActivity::class.java))

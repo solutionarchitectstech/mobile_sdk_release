@@ -1,5 +1,5 @@
 /*
- * Copyright © Gusev Andrew, Emelianov Andrew, Spinov Dmitry [collectively referred as the Authors], 2017-2022 - All Rights Reserved
+ * Copyright © Gusev Andrew, Emelianov Andrew, Spinov Dmitry [collectively referred as the Authors], 2017 - All Rights Reserved
  * [NOTICE: All information contained herein is, and remains the property of the Authors.](notice: All information contained herein is, and remains the property of the Authors.)
  * The intellectual and technical concepts contained herein are proprietary to the Authors
  * and may be covered by any existing patents of any country in the world, patents in
@@ -20,7 +20,14 @@ package tech.solutionarchitects.testapplication.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import tech.solutionarchitects.advertisingsdk.core.model.Size
+import tech.solutionarchitects.advertisingsdk.api.CloseButtonType
+import tech.solutionarchitects.advertisingsdk.api.common.BannerCloseButtonClick
+import tech.solutionarchitects.advertisingsdk.api.common.BannerLoadContentFail
+import tech.solutionarchitects.advertisingsdk.api.common.BannerLoadContentSuccess
+import tech.solutionarchitects.advertisingsdk.api.common.BannerLoadDataFail
+import tech.solutionarchitects.advertisingsdk.api.common.BannerLoadDataSuccess
+import tech.solutionarchitects.advertisingsdk.api.common.Size
+import tech.solutionarchitects.advertisingsdk.api.feature.banner.BannerAdvertisementQuery
 import tech.solutionarchitects.testapplication.databinding.ActivityFullscreenBannerViewBinding
 
 class FullscreenBannerViewActivity : AppCompatActivity() {
@@ -40,10 +47,31 @@ class FullscreenBannerViewActivity : AppCompatActivity() {
 
     private fun bannerViewLayoutTest() {
         binding.bannerView.load(
-            placementId = "YOUR_PLACEMENT_ID",
-            sizes = listOf(Size(width = 400, height = 156))
+            query = BannerAdvertisementQuery(
+                placementId = "TestBanner",
+                sizes = listOf(Size(width = 400, height = 156))
+            ),
+            closeButtonType = CloseButtonType.Appearing(5)
         ) { event ->
-            println("BannerEvent: $event")
+            when (event) {
+                is BannerLoadDataSuccess -> {
+                    println("BannerLoadDataSuccess: ${event.placementId}")
+                }
+                is BannerLoadDataFail -> {
+                    println("BannerLoadDataFail: ${event.throwable}")
+                }
+                is BannerLoadContentSuccess -> {
+                    println("BannerLoadContentSuccess: ${event.placementId}")
+                }
+                is BannerLoadContentFail -> {
+                    println("BannerLoadContentFail: ${event.throwable}")
+                }
+                is BannerCloseButtonClick -> {
+                    println("BannerCloseButtonClick: ${event.placementId}")
+                    finish()
+                }
+                else -> {}
+            }
         }
     }
 }

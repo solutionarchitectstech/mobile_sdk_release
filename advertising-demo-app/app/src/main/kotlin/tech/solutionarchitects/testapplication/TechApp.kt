@@ -19,9 +19,9 @@
 package tech.solutionarchitects.testapplication
 
 import android.app.Application
-import tech.solutionarchitects.advertisingsdk.TechAdvertising
-import tech.solutionarchitects.advertisingsdk.remoteconfig.CoreDestination
-import tech.solutionarchitects.advertisingsdk.remoteconfig.InitConfig
+import tech.solutionarchitects.advertisingsdk.api.TechAdvertising
+import tech.solutionarchitects.advertisingsdk.api.remoteconfig.CoreDestination
+import tech.solutionarchitects.advertisingsdk.api.remoteconfig.InitConfig
 import timber.log.Timber
 
 /**

@@ -39,3 +39,5 @@ output.json
 
 # Android Profiling
 *.hprof
+
+*_old

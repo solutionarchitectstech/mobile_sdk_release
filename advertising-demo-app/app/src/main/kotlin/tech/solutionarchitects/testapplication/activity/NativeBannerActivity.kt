@@ -19,13 +19,15 @@ package tech.solutionarchitects.testapplication.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import tech.solutionarchitects.advertisingsdk.listener.*
-import tech.solutionarchitects.advertisingsdk.types.CloseButtonType
+import tech.solutionarchitects.advertisingsdk.api.CloseButtonType
+import tech.solutionarchitects.advertisingsdk.api.feature.nativebanner.NativeAdvertisementQuery
 import tech.solutionarchitects.testapplication.databinding.ActivityNativeBannerBinding
+import timber.log.Timber
 
 class NativeBannerActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityNativeBannerBinding
+    private val placementId = "TestBanner"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,13 +38,16 @@ class NativeBannerActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         binding.nativeBannerView.load(
-            placementId = "YOUR_PLACEMENT_ID",
-            closeButtonType = CloseButtonType.Countdown(milliseconds = 3_000),
-            //floorPrice = 2f,
-            //currency = "RUB",
-            //customParams = mapOf("example" to "value", "example2" to "value2")
+            query = NativeAdvertisementQuery(
+                placementId = placementId,
+                //floorPrice = 2f,
+                //currency = "RUB",
+                //customParams = mapOf("example" to "value", "example2" to "value2")
+            ),
+            refresh = 10,
+            closeButtonType = CloseButtonType.Countdown(timeout = 3),
         ) { event ->
-            println("NativeBannerEvent: $event")
+            Timber.d(event.toString())
         }
     }
 }

@@ -21,10 +21,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <tech.solutionarchitects.advertisingsdk.api.view.banner.NativeBannerView
+    <tech.solutionarchitects.advertisingsdk.api.feature.nativebanner.NativeBannerView
         android:id="@+id/nativeBannerView"
-        android:layout_width="728px"
-        android:layout_height="90px"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -18,19 +18,14 @@
 package tech.solutionarchitects.testapplication.activity
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import tech.solutionarchitects.advertisingsdk.core.model.Size
-import tech.solutionarchitects.advertisingsdk.listener.BannerCloseButtonClick
-import tech.solutionarchitects.advertisingsdk.listener.BannerSentClickStatistic
-import tech.solutionarchitects.advertisingsdk.listener.BannerSentLoadStatistic
-import tech.solutionarchitects.advertisingsdk.listener.BannerSentViewStatistic
-import tech.solutionarchitects.advertisingsdk.types.CloseButtonType
-import tech.solutionarchitects.testapplication.R
+import tech.solutionarchitects.advertisingsdk.api.CloseButtonType
+import tech.solutionarchitects.advertisingsdk.api.common.Size
+import tech.solutionarchitects.advertisingsdk.api.feature.banner.BannerAdvertisementQuery
+import tech.solutionarchitects.advertisingsdk.api.feature.nativebanner.NativeAdvertisementQuery
 import tech.solutionarchitects.testapplication.databinding.ActivityScrollableWithBannersBinding
 import timber.log.Timber
 
@@ -51,74 +46,26 @@ class ScrollableActivityWithBanners : AppCompatActivity() {
         }
 
         binding.nativeBannerView.load(
-            placementId = "TestBanner",
-            closeButtonType = CloseButtonType.Countdown(milliseconds = 3_000),
-            //floorPrice = 2f,
-            //currency = "RUB",
-            //customParams = mapOf("example" to "value", "example2" to "value2")
+            query = NativeAdvertisementQuery(
+                placementId = "TestBanner",
+                //floorPrice = 2f,
+                //currency = "RUB",
+                //customParams = mapOf("example" to "value", "example2" to "value2")
+            ),
+            closeButtonType = CloseButtonType.Countdown(timeout = 3),
         ) { event ->
             Timber.d(event.toString())
-            when (event) {
-                is BannerCloseButtonClick -> {
-                    finish()
-                }
-                is BannerSentClickStatistic -> scope.launch {
-                    Toast.makeText(
-                        this@ScrollableActivityWithBanners.applicationContext,
-                        resources.getString(R.string.banner_tapped_alert, event.placementId),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-                is BannerSentLoadStatistic -> scope.launch {
-                    Toast.makeText(
-                        this@ScrollableActivityWithBanners.applicationContext,
-                        resources.getString(R.string.banner_loaded_alert, event.placementId),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-                is BannerSentViewStatistic -> scope.launch {
-                    Toast.makeText(
-                        this@ScrollableActivityWithBanners.applicationContext,
-                        resources.getString(R.string.banner_viewed_alert, event.placementId),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            }
         }
 
         binding.bannerView.load(
-            placementId = "1",
-            sizes = listOf(Size(width = 1024, height = 768)),
-            closeButtonType = CloseButtonType.Countdown(milliseconds = 30_000),
-            //customParams = mapOf("example" to "value", "example2" to "value2")
+            query = BannerAdvertisementQuery(
+                placementId = "1",
+                sizes = listOf(Size(width = 1024, height = 768)),
+                //customParams = mapOf("example" to "value", "example2" to "value2")
+            ),
+            closeButtonType = CloseButtonType.Countdown(timeout = 30),
         ) { event ->
             Timber.d(event.toString())
-            when (event) {
-                is BannerCloseButtonClick -> {
-                    finish()
-                }
-                is BannerSentClickStatistic -> scope.launch {
-                    Toast.makeText(
-                        this@ScrollableActivityWithBanners.applicationContext,
-                        resources.getString(R.string.banner_tapped_alert, event.placementId),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-                is BannerSentLoadStatistic -> scope.launch {
-                    Toast.makeText(
-                        this@ScrollableActivityWithBanners.applicationContext,
-                        resources.getString(R.string.banner_loaded_alert, event.placementId),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-                is BannerSentViewStatistic -> scope.launch {
-                    Toast.makeText(
-                        this@ScrollableActivityWithBanners.applicationContext,
-                        resources.getString(R.string.banner_viewed_alert, event.placementId),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            }
         }
     }
 }

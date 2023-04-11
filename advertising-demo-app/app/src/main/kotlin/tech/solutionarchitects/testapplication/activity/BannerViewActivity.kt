@@ -20,39 +20,37 @@ package tech.solutionarchitects.testapplication.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import tech.solutionarchitects.advertisingsdk.core.model.Size
-import tech.solutionarchitects.advertisingsdk.types.CloseButtonType
+import tech.solutionarchitects.advertisingsdk.api.common.Size
+import tech.solutionarchitects.advertisingsdk.api.feature.banner.BannerAdvertisementQuery
+import tech.solutionarchitects.advertisingsdk.api.CloseButtonType
 import tech.solutionarchitects.testapplication.databinding.ActivityBannerViewBinding
+import timber.log.Timber
 
 class BannerViewActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityBannerViewBinding
-    private lateinit var scope: CoroutineScope
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        scope = CoroutineScope(Dispatchers.Main)
         binding = ActivityBannerViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
-    }
-
-    override fun onResume() {
-        super.onResume()
         bannerViewLayoutTest()
     }
 
+
     private fun bannerViewLayoutTest() {
         binding.bannerView.load(
-            placementId = "YOUR_PLACEMENT_ID",
-            sizes = listOf(Size(width = 1024, height = 768)),
-            closeButtonType = CloseButtonType.Countdown(milliseconds = 3_000),
-            //floorPrice = 2f,
-            //currency = "RUB",
-            //customParams = mapOf("example" to "value", "example2" to "value2")
+            query = BannerAdvertisementQuery(
+                placementId = "1",
+                sizes = listOf(Size(width = 1024, height = 768)),
+                //floorPrice = 2f,
+                //currency = "RUB",
+                //customParams = mapOf("example" to "value", "example2" to "value2")
+            ),
+            refresh = 10,
+            closeButtonType = CloseButtonType.Countdown(timeout = 15),
         ) { event ->
-            println("BannerEvent: $event")
+            Timber.d(event.toString())
         }
     }
 }
