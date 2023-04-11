@@ -23,7 +23,7 @@
     android:layout_height="match_parent"
     tools:context=".activity.BannerViewActivity">
 
-    <tech.solutionarchitects.advertisingsdk.api.view.banner.BannerView
+    <tech.solutionarchitects.advertisingsdk.api.feature.banner.BannerView
         android:id="@+id/bannerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

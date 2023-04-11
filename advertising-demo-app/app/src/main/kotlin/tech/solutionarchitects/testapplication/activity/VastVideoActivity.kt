@@ -20,8 +20,12 @@ package tech.solutionarchitects.testapplication.activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import tech.solutionarchitects.advertisingsdk.api.AdvertisingSDKExperimental
-import tech.solutionarchitects.advertisingsdk.api.view.video.VastVideoView
-import tech.solutionarchitects.advertisingsdk.listener.*
+import tech.solutionarchitects.advertisingsdk.api.common.PlayerCloseButtonClick
+import tech.solutionarchitects.advertisingsdk.api.common.PlayerLoadContentFail
+import tech.solutionarchitects.advertisingsdk.api.common.PlayerLoadContentSuccess
+import tech.solutionarchitects.advertisingsdk.api.common.PlayerLoadDataFail
+import tech.solutionarchitects.advertisingsdk.api.common.PlayerLoadDataSuccess
+import tech.solutionarchitects.advertisingsdk.api.feature.video.VastVideoView
 import tech.solutionarchitects.testapplication.databinding.ActivityVastVideoBinding
 import tech.solutionarchitects.testapplication.util.getAppUsableScreenSize
 import timber.log.Timber
@@ -57,7 +61,7 @@ class VastVideoActivity : AppCompatActivity() {
                     }
                 }.build()
 
-        playerController.launchSSL()
+        playerController.launchSSP()
         //playerController.launchTestResponse()
     }
 }

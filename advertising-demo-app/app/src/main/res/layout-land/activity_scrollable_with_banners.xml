@@ -29,7 +29,7 @@
                 android:layout_height="match_parent"
                 android:background="@color/black" />
 
-            <tech.solutionarchitects.advertisingsdk.api.view.banner.BannerView
+            <tech.solutionarchitects.advertisingsdk.api.feature.banner.BannerView
                 android:id="@+id/bannerView"
                 android:layout_width="300dp"
                 android:layout_height="117dp"
@@ -52,7 +52,7 @@
                 android:layout_height="match_parent"
                 android:background="@color/purple_200" />
 
-            <tech.solutionarchitects.advertisingsdk.api.view.banner.NativeBannerView
+            <tech.solutionarchitects.advertisingsdk.api.feature.nativebanner.NativeBannerView
                 android:id="@+id/nativeBannerView"
                 android:layout_width="728px"
                 android:layout_height="90px"

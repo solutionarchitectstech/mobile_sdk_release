@@ -27,7 +27,7 @@
     android:layout_marginBottom="16dp"
     android:background="@color/cardview_dark_background">
 
-    <tech.solutionarchitects.advertisingsdk.api.view.banner.BannerView
+    <tech.solutionarchitects.advertisingsdk.api.feature.banner.BannerView
         android:id="@+id/bannerView"
         android:layout_width="match_parent"
         android:layout_height="200dp"
