@@ -20,9 +20,9 @@ package tech.solutionarchitects.testapplication.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import tech.solutionarchitects.advertisingsdk.api.CloseButtonType
 import tech.solutionarchitects.advertisingsdk.api.common.Size
 import tech.solutionarchitects.advertisingsdk.api.feature.banner.BannerAdvertisementQuery
-import tech.solutionarchitects.advertisingsdk.api.CloseButtonType
 import tech.solutionarchitects.testapplication.databinding.ActivityBannerViewBinding
 import timber.log.Timber
 
@@ -47,8 +47,8 @@ class BannerViewActivity : AppCompatActivity() {
                 //currency = "RUB",
                 //customParams = mapOf("example" to "value", "example2" to "value2")
             ),
-            refresh = 10,
-            closeButtonType = CloseButtonType.Countdown(timeout = 15),
+            refresh = 60,
+            closeButtonType = CloseButtonType.Countdown(5),
         ) { event ->
             Timber.d(event.toString())
         }

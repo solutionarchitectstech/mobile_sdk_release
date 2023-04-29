@@ -49,9 +49,13 @@ class FullscreenBannerViewActivity : AppCompatActivity() {
         binding.bannerView.load(
             query = BannerAdvertisementQuery(
                 placementId = "TestBanner",
-                sizes = listOf(Size(width = 400, height = 156))
+                sizes = listOf(Size(width = 400, height = 156)),
+                floorPrice = 1.234,
+                currency = "SOME_CURRENCY",
+                customParams = mapOf("someKey" to "someValue")
             ),
-            closeButtonType = CloseButtonType.Appearing(5)
+            closeButtonType = CloseButtonType.Appearing(5),
+            refresh = 10
         ) { event ->
             when (event) {
                 is BannerLoadDataSuccess -> {
