@@ -37,7 +37,7 @@ class TechApp : Application() {
         TechAdvertising.init(
                 context = applicationContext,
                 storeUrl = "",
-                uid = "uid@google.com",
+                sessionId = "YOUR_SESSION_ID",
                 initConfig = InitConfig(
                         core = CoreDestination(
                                 bannerUrl = "https://<YOUR_ADVERTISING_ENDPOINT>/",
