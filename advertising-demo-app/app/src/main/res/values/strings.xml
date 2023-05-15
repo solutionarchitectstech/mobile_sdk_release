@@ -66,4 +66,5 @@
     <string name="scrollable_layout_screen_button">Scrollable layout</string>
     <string name="use_rtb_for_audio_advertisement">Use RTB for audio advertisement</string>
     <string name="placeholder_show_hide">PLACEHOLDER SHOW/HIDE</string>
+    <string name="product_creative">Product creative</string>
 </resources>
