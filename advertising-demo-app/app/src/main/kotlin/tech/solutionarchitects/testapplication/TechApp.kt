@@ -42,7 +42,8 @@ class TechApp : Application() {
                         core = CoreDestination(
                                 bannerUrl = "https://<YOUR_ADVERTISING_ENDPOINT>/",
                                 nativeBannerUrl = "https://<YOUR_ADVERTISING_ENDPOINT>/",
-                                videoUrl = "https://<YOUR_VIDEO_ENDPOINT>/"
+                                videoUrl = "https://<YOUR_VIDEO_ENDPOINT>/",
+                                productCreativeUrl = "https://<YOUR_PRODUCT_CREATIVE_ENDPOINT>/"
                         )
                 ),
                 headers = mapOf(

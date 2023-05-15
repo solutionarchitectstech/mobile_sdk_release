@@ -24,6 +24,7 @@ import androidx.appcompat.app.AppCompatActivity
 import tech.solutionarchitects.testapplication.activity.BannerViewActivity
 import tech.solutionarchitects.testapplication.activity.FullscreenBannerViewActivity
 import tech.solutionarchitects.testapplication.activity.NativeBannerActivity
+import tech.solutionarchitects.testapplication.activity.ProductCreativeActivity
 import tech.solutionarchitects.testapplication.activity.ScrollableActivityWithBanners
 import tech.solutionarchitects.testapplication.activity.VastVideoActivity
 import tech.solutionarchitects.testapplication.activity.recyclerView.RecyclerViewActivity
@@ -63,6 +64,9 @@ class MainActivity : AppCompatActivity() {
 
         binding.videoPlayerViewButton.setOnClickListener {
             startActivity(Intent(this, VastVideoActivity::class.java))
+        }
+        binding.productCreativeButton.setOnClickListener {
+            startActivity(Intent(this, ProductCreativeActivity::class.java))
         }
     }
 
