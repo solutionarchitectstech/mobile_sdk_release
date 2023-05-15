@@ -33,6 +33,7 @@ class ProductCreativeActivity : AppCompatActivity() {
                     )
                 ).onSuccess { productCreative ->
                     // Handle success
+                    binding.productCreativeResultTextView.text= productCreative.toString()
                 }.onFailure { exception: Throwable ->
                     // Handle failure
                 }
