@@ -21,14 +21,10 @@ package tech.solutionarchitects.testapplication.activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import tech.solutionarchitects.advertisingsdk.api.CloseButtonType
-import tech.solutionarchitects.advertisingsdk.api.common.BannerCloseButtonClick
-import tech.solutionarchitects.advertisingsdk.api.common.BannerLoadContentFail
-import tech.solutionarchitects.advertisingsdk.api.common.BannerLoadContentSuccess
-import tech.solutionarchitects.advertisingsdk.api.common.BannerLoadDataFail
-import tech.solutionarchitects.advertisingsdk.api.common.BannerLoadDataSuccess
 import tech.solutionarchitects.advertisingsdk.api.common.Size
 import tech.solutionarchitects.advertisingsdk.api.feature.banner.BannerAdvertisementQuery
 import tech.solutionarchitects.testapplication.databinding.ActivityFullscreenBannerViewBinding
+import tech.solutionarchitects.testapplication.utils.showDebugToast
 
 class FullscreenBannerViewActivity : AppCompatActivity() {
 
@@ -54,28 +50,10 @@ class FullscreenBannerViewActivity : AppCompatActivity() {
                 currency = "SOME_CURRENCY",
                 customParams = mapOf("someKey" to "someValue")
             ),
-            closeButtonType = CloseButtonType.Appearing(5),
-            refresh = 10
+            closeButtonType = CloseButtonType.Appearing(15),
+            refresh = 30
         ) { event ->
-            when (event) {
-                is BannerLoadDataSuccess -> {
-                    println("BannerLoadDataSuccess: ${event.placementId}")
-                }
-                is BannerLoadDataFail -> {
-                    println("BannerLoadDataFail: ${event.throwable}")
-                }
-                is BannerLoadContentSuccess -> {
-                    println("BannerLoadContentSuccess: ${event.placementId}")
-                }
-                is BannerLoadContentFail -> {
-                    println("BannerLoadContentFail: ${event.throwable}")
-                }
-                is BannerCloseButtonClick -> {
-                    println("BannerCloseButtonClick: ${event.placementId}")
-                    finish()
-                }
-                else -> {}
-            }
+            showDebugToast(event)
         }
     }
 }

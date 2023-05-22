@@ -22,7 +22,7 @@ import androidx.appcompat.app.AppCompatActivity
 import tech.solutionarchitects.advertisingsdk.api.CloseButtonType
 import tech.solutionarchitects.advertisingsdk.api.feature.nativebanner.NativeAdvertisementQuery
 import tech.solutionarchitects.testapplication.databinding.ActivityNativeBannerBinding
-import timber.log.Timber
+import tech.solutionarchitects.testapplication.utils.showDebugToast
 
 class NativeBannerActivity : AppCompatActivity() {
 
@@ -40,14 +40,14 @@ class NativeBannerActivity : AppCompatActivity() {
         binding.nativeBannerView.load(
             query = NativeAdvertisementQuery(
                 placementId = placementId,
-                //floorPrice = 2f,
-                //currency = "RUB",
-                //customParams = mapOf("example" to "value", "example2" to "value2")
+                floorPrice = 2.0,
+                currency = "RUB",
+                customParams = mapOf("example" to "value", "example2" to "value2")
             ),
-            refresh = 10,
-            closeButtonType = CloseButtonType.Countdown(timeout = 3),
+            refresh = 30,
+            closeButtonType = CloseButtonType.Countdown(timeout = 15),
         ) { event ->
-            Timber.d(event.toString())
+            showDebugToast(event)
         }
     }
 }

@@ -20,14 +20,12 @@ package tech.solutionarchitects.testapplication.activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import tech.solutionarchitects.advertisingsdk.api.CloseButtonType
 import tech.solutionarchitects.advertisingsdk.api.common.Size
 import tech.solutionarchitects.advertisingsdk.api.feature.banner.BannerAdvertisementQuery
 import tech.solutionarchitects.advertisingsdk.api.feature.nativebanner.NativeAdvertisementQuery
 import tech.solutionarchitects.testapplication.databinding.ActivityScrollableWithBannersBinding
-import timber.log.Timber
+import tech.solutionarchitects.testapplication.utils.showDebugToast
 
 class ScrollableActivityWithBanners : AppCompatActivity() {
 
@@ -38,34 +36,34 @@ class ScrollableActivityWithBanners : AppCompatActivity() {
         binding = ActivityScrollableWithBannersBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val scope = CoroutineScope(Dispatchers.Main)
-
         // NOTE(radchenko): Click on button reproduces scenario when a UI change occurs in the host-app that overlap Banner
         binding.buttonForPlaceholder.setOnClickListener {
             binding.placeholderView.isVisible = !binding.placeholderView.isVisible
-        }
-
-        binding.nativeBannerView.load(
-            query = NativeAdvertisementQuery(
-                placementId = "TestBanner",
-                //floorPrice = 2f,
-                //currency = "RUB",
-                //customParams = mapOf("example" to "value", "example2" to "value2")
-            ),
-            closeButtonType = CloseButtonType.Countdown(timeout = 3),
-        ) { event ->
-            Timber.d(event.toString())
         }
 
         binding.bannerView.load(
             query = BannerAdvertisementQuery(
                 placementId = "1",
                 sizes = listOf(Size(width = 1024, height = 768)),
-                //customParams = mapOf("example" to "value", "example2" to "value2")
+                customParams = mapOf("example" to "value", "example2" to "value2")
             ),
             closeButtonType = CloseButtonType.Countdown(timeout = 30),
+            refresh = 60
         ) { event ->
-            Timber.d(event.toString())
+            showDebugToast(event)
+        }
+
+        binding.nativeBannerView.load(
+            query = NativeAdvertisementQuery(
+                placementId = "TestBanner",
+                floorPrice = 2.0,
+                currency = "RUB",
+                customParams = mapOf("example" to "value", "example2" to "value2")
+            ),
+            closeButtonType = CloseButtonType.Countdown(timeout = 60),
+            refresh = 120
+        ) { event ->
+            showDebugToast(event)
         }
     }
 }
