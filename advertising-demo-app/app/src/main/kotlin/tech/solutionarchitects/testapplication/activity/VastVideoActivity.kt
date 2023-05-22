@@ -27,7 +27,7 @@ import tech.solutionarchitects.advertisingsdk.api.common.PlayerLoadDataFail
 import tech.solutionarchitects.advertisingsdk.api.common.PlayerLoadDataSuccess
 import tech.solutionarchitects.advertisingsdk.api.feature.video.VastVideoView
 import tech.solutionarchitects.testapplication.databinding.ActivityVastVideoBinding
-import tech.solutionarchitects.testapplication.util.getAppUsableScreenSize
+import tech.solutionarchitects.testapplication.utils.getAppUsableScreenSize
 import timber.log.Timber
 
 @OptIn(AdvertisingSDKExperimental::class)

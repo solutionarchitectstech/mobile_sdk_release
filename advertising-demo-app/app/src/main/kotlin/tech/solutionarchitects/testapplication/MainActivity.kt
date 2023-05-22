@@ -29,7 +29,7 @@ import tech.solutionarchitects.testapplication.activity.ScrollableActivityWithBa
 import tech.solutionarchitects.testapplication.activity.VastVideoActivity
 import tech.solutionarchitects.testapplication.activity.recyclerView.RecyclerViewActivity
 import tech.solutionarchitects.testapplication.databinding.ActivityMainBinding
-import tech.solutionarchitects.testapplication.util.requestLocation
+import tech.solutionarchitects.testapplication.utils.requestLocation
 
 class MainActivity : AppCompatActivity() {
 

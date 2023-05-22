@@ -24,7 +24,7 @@ import tech.solutionarchitects.advertisingsdk.api.CloseButtonType
 import tech.solutionarchitects.advertisingsdk.api.common.Size
 import tech.solutionarchitects.advertisingsdk.api.feature.banner.BannerAdvertisementQuery
 import tech.solutionarchitects.testapplication.databinding.ActivityBannerViewBinding
-import timber.log.Timber
+import tech.solutionarchitects.testapplication.utils.showDebugToast
 
 class BannerViewActivity : AppCompatActivity() {
 
@@ -43,14 +43,14 @@ class BannerViewActivity : AppCompatActivity() {
             query = BannerAdvertisementQuery(
                 placementId = "1",
                 sizes = listOf(Size(width = 1024, height = 768)),
-                //floorPrice = 2f,
-                //currency = "RUB",
-                //customParams = mapOf("example" to "value", "example2" to "value2")
+                floorPrice = 2.0,
+                currency = "RUB",
+                customParams = mapOf("example" to "value", "example2" to "value2")
             ),
-            refresh = 60,
-            closeButtonType = CloseButtonType.Countdown(5),
+            refresh = 30,
+            closeButtonType = CloseButtonType.Countdown(15),
         ) { event ->
-            Timber.d(event.toString())
+            showDebugToast(event)
         }
     }
 }

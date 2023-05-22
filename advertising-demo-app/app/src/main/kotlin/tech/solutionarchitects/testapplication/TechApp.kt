@@ -35,24 +35,22 @@ class TechApp : Application() {
         Timber.plant(Timber.DebugTree())
 
         TechAdvertising.init(
-                context = applicationContext,
-                storeUrl = "",
-                sessionId = "YOUR_SESSION_ID",
-                initConfig = InitConfig(
-                        core = CoreDestination(
-                                bannerUrl = "https://<YOUR_ADVERTISING_ENDPOINT>/",
-                                nativeBannerUrl = "https://<YOUR_ADVERTISING_ENDPOINT>/",
-                                videoUrl = "https://<YOUR_VIDEO_ENDPOINT>/",
-                                productCreativeUrl = "https://<YOUR_PRODUCT_CREATIVE_ENDPOINT>/"
-                        )
-                ),
-                headers = mapOf(
-                        "Authorization" to { "Bearer YOUR_AUTH_TOKEN" },
-                ),
-                debugMode = true,
+            storeUrl = "YOUR_STORE_URL",
+            sessionId = "YOUR_SESSION_ID",
+            initConfig = InitConfig(
+                core = CoreDestination(
+                    bannerUrl = "https://<YOUR_ADVERTISING_ENDPOINT>/",
+                    nativeBannerUrl = "https://<YOUR_ADVERTISING_ENDPOINT>/",
+                    videoUrl = "https://<YOUR_VIDEO_ENDPOINT>/",
+                    productCreativeUrl = "https://<YOUR_PRODUCT_CREATIVE_ENDPOINT>/"
+                )
+            ),
+            headers = mapOf(
+                "Authorization" to { "Bearer YOUR_AUTH_TOKEN" },
+            ),
+            debugMode = true,
         )
-
-        Thread.setDefaultUncaughtExceptionHandler { t, e -> Timber.e(e) }
+        TechAdvertising.uid = "USER_ID"
     }
 }
 

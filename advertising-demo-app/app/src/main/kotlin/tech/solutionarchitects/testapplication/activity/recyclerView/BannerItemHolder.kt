@@ -20,15 +20,11 @@ package tech.solutionarchitects.testapplication.activity.recyclerView
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import tech.solutionarchitects.advertisingsdk.api.common.BannerCloseButtonClick
-import tech.solutionarchitects.advertisingsdk.api.common.BannerLoadContentFail
-import tech.solutionarchitects.advertisingsdk.api.common.BannerLoadContentSuccess
-import tech.solutionarchitects.advertisingsdk.api.common.BannerLoadDataFail
-import tech.solutionarchitects.advertisingsdk.api.common.BannerLoadDataSuccess
+import tech.solutionarchitects.advertisingsdk.api.CloseButtonType
 import tech.solutionarchitects.advertisingsdk.api.common.Size
 import tech.solutionarchitects.advertisingsdk.api.feature.banner.BannerAdvertisementQuery
-import tech.solutionarchitects.advertisingsdk.api.CloseButtonType
 import tech.solutionarchitects.testapplication.databinding.RecyclerViewItemBinding
+import tech.solutionarchitects.testapplication.utils.showDebugToast
 
 class BannerItemHolder(private val binding: RecyclerViewItemBinding) :
     RecyclerView.ViewHolder(binding.root) {
@@ -54,26 +50,10 @@ class BannerItemHolder(private val binding: RecyclerViewItemBinding) :
                 placementId = item.placementID.toString(),
                 sizes = listOf(Size(width = 1024, height = 768)),
             ),
-            closeButtonType = CloseButtonType.None
+            closeButtonType = CloseButtonType.None,
+            refresh = 30
         ) { event ->
-            when (event) {
-                is BannerLoadDataSuccess -> {
-                    println("BannerLoadDataSuccess: ${event.placementId}")
-                }
-                is BannerLoadDataFail -> {
-                    println("BannerLoadDataFail: ${event.throwable}")
-                }
-                is BannerLoadContentSuccess -> {
-                    println("BannerLoadContentSuccess: ${event.placementId}")
-                }
-                is BannerLoadContentFail -> {
-                    println("BannerLoadContentFail: ${event.throwable}")
-                }
-                is BannerCloseButtonClick -> {
-                    println("BannerCloseButtonClick: ${event.placementId}")
-                }
-                else -> {}
-            }
+            binding.bannerView.context.showDebugToast(event)
         }
     }
 

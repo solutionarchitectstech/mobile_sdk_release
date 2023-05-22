@@ -15,7 +15,7 @@
  * The copyright notice above does not provide evidence of any actual or intended publication or disclosure
  * of this source code, which in
  */
-package tech.solutionarchitects.testapplication.util
+package tech.solutionarchitects.testapplication.utils
 
 import android.content.Context
 import android.graphics.Point

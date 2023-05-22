@@ -1,4 +1,4 @@
-package tech.solutionarchitects.testapplication.util
+package tech.solutionarchitects.testapplication.utils
 
 import android.Manifest
 import androidx.activity.result.contract.ActivityResultContracts
