@@ -41,8 +41,8 @@ class BannerViewActivity : AppCompatActivity() {
     private fun bannerViewLayoutTest() {
         binding.bannerView.load(
             query = BannerAdvertisementQuery(
-                placementId = "1",
-                sizes = listOf(Size(width = 1024, height = 768)),
+                placementId = "YOUR_PLACEMENT_ID",
+                sizes = listOf(Size(width = 260, height = 106)),
                 floorPrice = 2.0,
                 currency = "RUB",
                 customParams = mapOf("example" to "value", "example2" to "value2")
