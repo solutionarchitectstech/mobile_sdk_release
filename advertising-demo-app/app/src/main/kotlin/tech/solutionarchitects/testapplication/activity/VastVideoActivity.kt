@@ -61,7 +61,7 @@ class VastVideoActivity : AppCompatActivity() {
                     }
                 }.build()
 
-        playerController.launchSSP()
+        playerController.loadSSP()
         //playerController.launchTestResponse()
     }
 }
