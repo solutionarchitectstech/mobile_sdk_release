@@ -16,25 +16,27 @@
  * of this source code, which in
  */
 
-package tech.solutionarchitects.testapplication.activity.recyclerView
+package tech.solutionarchitects.testapplication.activity.recycler_native
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.lifecycle.Lifecycle
 import androidx.recyclerview.widget.RecyclerView
-import tech.solutionarchitects.advertisingsdk.api.BannerCreativeHolder
+import tech.solutionarchitects.advertisingsdk.api.AdvertisingSDKExperimental
+import tech.solutionarchitects.advertisingsdk.api.NativeBannerCreativeHolder
 import tech.solutionarchitects.advertisingsdk.api.common.BannerCreativeEvent
 import tech.solutionarchitects.advertisingsdk.api.common.TechAdvertisingListener
 import tech.solutionarchitects.testapplication.databinding.EmptyItemBinding
-import tech.solutionarchitects.testapplication.databinding.RecyclerViewItemBinding
+import tech.solutionarchitects.testapplication.databinding.RecyclerNativeViewItemBinding
 
-class Adapter(
+class NativeBannerAdapter(
     private val lifecycle: Lifecycle,
     private val dataSet: List<Item>,
     private val listener: TechAdvertisingListener<BannerCreativeEvent>
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
+    @OptIn(AdvertisingSDKExperimental::class)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
             Item.EMPTY_ITEM_TYPE -> {
@@ -47,9 +49,10 @@ class Adapter(
                 )
             }
 
-            Item.BANNER_TYPE -> {
-                BannerCreativeHolder(
-                    view = RecyclerViewItemBinding
+
+            Item.NATIVE_BANNER_TYPE -> {
+                NativeBannerCreativeHolder(
+                    view = RecyclerNativeViewItemBinding
                         .inflate(
                             LayoutInflater.from(parent.context),
                             parent,
@@ -66,17 +69,18 @@ class Adapter(
         }
     }
 
+    @OptIn(AdvertisingSDKExperimental::class)
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (val item = dataSet[position]) {
             is Item.EmptyItem -> (holder as EmptyItemHolder).bind(item)
-            is Item.BannerItem -> {
+            is Item.NativeBannerItem -> {
                 val layoutParams = ViewGroup.LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.MATCH_PARENT
                 )
-                val banner = item.bannerView
+                val banner = item.nativeBannerView
                 banner.layoutParams = layoutParams
-                val container = (holder as BannerCreativeHolder).itemView as ViewGroup
+                val container = (holder as NativeBannerCreativeHolder).itemView as ViewGroup
                 holder.apply {
                     (this.itemView as ViewGroup).apply {
                         if (this.childCount > 0) this.removeAllViews()
@@ -87,7 +91,7 @@ class Adapter(
                 }
                 container.addView(banner, layoutParams)
 
-                holder.loadIfNeeded(bannerView = banner, refresh = item.refresh)
+                holder.loadIfNeeded(nativeBannerView = banner, refresh = item.refresh)
             }
         }
     }
@@ -97,7 +101,7 @@ class Adapter(
 
     override fun getItemViewType(position: Int): Int {
         return when (dataSet[position]) {
-            is Item.BannerItem -> Item.BANNER_TYPE
+            is Item.NativeBannerItem -> Item.NATIVE_BANNER_TYPE
             is Item.EmptyItem -> Item.EMPTY_ITEM_TYPE
         }
     }

@@ -16,10 +16,10 @@
         app:layout_constraintBottom_toBottomOf="@+id/productCreativeResultTextView">
 
         <Button
-            android:id="@+id/productCreativeButton"
+            android:id="@+id/multipleProductCreativesButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/product_creative"
+            android:text="@string/multiple_product_creative"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
