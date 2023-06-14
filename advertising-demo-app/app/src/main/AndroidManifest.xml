@@ -39,34 +39,61 @@
             </intent-filter>
         </activity>
 
+        <!-- InLayout -->
         <activity
             android:name="tech.solutionarchitects.testapplication.activity.BannerViewActivity"
             android:exported="true" />
+        <activity
+            android:name=".activity.NativeBannerActivity"
+            android:exported="true" />
+
+        <!-- Programmatically -->
 
         <activity
-            android:name="tech.solutionarchitects.testapplication.activity.FullscreenBannerViewActivity"
+            android:name=".activity.ProgrammaticallyBannerViewActivity"
             android:exported="true" />
 
         <activity
-            android:name="tech.solutionarchitects.testapplication.activity.recyclerView.RecyclerViewActivity"
+            android:name="tech.solutionarchitects.testapplication.activity.ProgrammaticallyNativeBannerViewActivity"
+            android:exported="false" />
+
+        <!-- Scrollable layout -->
+
+        <activity
+            android:name="tech.solutionarchitects.testapplication.activity.RecyclerViewWithBannerActivity"
             android:exported="true" />
+
+        <activity
+            android:name="tech.solutionarchitects.testapplication.activity.RecyclerViewWithNativeBannerActivity"
+            android:exported="true" />
+
+
+        <!--   Product Creative    -->
+        <activity
+            android:name=".activity.ProductCreativeActivity"
+            android:exported="true" />
+
+        <!-- MULTIPLE IMPRESSIONS -->
+
+        <activity
+            android:name=".activity.MultipleBannerViewActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".activity.MultipleNativeBannerViewActivity"
+            android:exported="true" />
+
+        <activity
+            android:name="tech.solutionarchitects.testapplication.activity.MultipleProductCreativesActivity"
+            android:exported="false" />
+
+        <!-- Media -->
 
         <activity
             android:name="tech.solutionarchitects.testapplication.activity.VastVideoActivity"
             android:configChanges="orientation|screenSize"
             android:exported="true" />
 
-        <activity
-            android:name=".activity.NativeBannerActivity"
-            android:exported="true" />
-
-        <activity
-            android:name=".activity.ScrollableActivityWithBanners"
-            android:exported="true" />
-
-        <activity
-            android:name=".activity.ProductCreativeActivity"
-            android:exported="true" />
     </application>
 
 </manifest>

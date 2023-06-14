@@ -16,18 +16,24 @@
  * of this source code, which in
  */
 
-package tech.solutionarchitects.testapplication.activity.recyclerView
+package tech.solutionarchitects.testapplication.activity
 
 import android.os.Bundle
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import tech.solutionarchitects.advertisingsdk.api.CloseButtonType
+import tech.solutionarchitects.advertisingsdk.api.common.Size
+import tech.solutionarchitects.advertisingsdk.api.feature.banner.BannerCreativeQuery
+import tech.solutionarchitects.advertisingsdk.api.feature.banner.BannerView
+import tech.solutionarchitects.testapplication.activity.recyclerView.Adapter
+import tech.solutionarchitects.testapplication.activity.recyclerView.Item
 import tech.solutionarchitects.testapplication.databinding.ActivityRecyclerViewBinding
+import tech.solutionarchitects.testapplication.utils.showDebugMessage
 
-class RecyclerViewActivity : AppCompatActivity() {
+class RecyclerViewWithBannerActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRecyclerViewBinding
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,25 +48,35 @@ class RecyclerViewActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        binding.recyclerView.adapter = Adapter(items)
+        binding.recyclerView.adapter = Adapter(lifecycle = lifecycle, dataSet = items) { event ->
+            showDebugMessage(event)
+        }
     }
 
     private val items: List<Item>
         get() {
-            return mutableListOf<Item>().also {
-                it.addAll(
-                    (0..6).toList().map { counter ->
-                        EmptyItem(counter)
+            return mutableListOf<Item>().also { list ->
+                repeat(250) {
+                    if (it % 5 == 0) {
+                        list.add(
+                            Item.BannerItem(
+                                bannerView = BannerView(this).apply {
+                                    query = BannerCreativeQuery(
+                                        placementId = "YOUR_PLACEMENT_ID",
+                                        sizes = listOf(Size(width = 260, height = 106)),
+                                        floorPrice = 2.0,
+                                        currency = "RUB",
+                                        customParams = mapOf("someKey" to "someValue"),
+                                        closeButtonType = CloseButtonType.Countdown(5)
+                                    )
+                                },
+                                refresh = 15
+                            )
+                        )
+                    } else {
+                        list.add(Item.EmptyItem(it))
                     }
-                )
-                it.add(
-                    BannerItem(placementID = 1, order = it.size)
-                )
-                it.addAll(
-                    (0..5).toList().map {counter ->
-                        EmptyItem(counter)
-                    }
-                )
+                }
             }
         }
 }

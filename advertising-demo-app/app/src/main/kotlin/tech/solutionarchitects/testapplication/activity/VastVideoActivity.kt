@@ -52,10 +52,12 @@ class VastVideoActivity : AppCompatActivity() {
                         is PlayerLoadContentFail -> {
                             Timber.d("PlayerLoadContentFail: ${event.throwable?.message}")
                         }
+
                         is PlayerLoadContentSuccess -> Timber.d("PlayerLoadContentSuccess")
                         is PlayerLoadDataFail -> {
                             Timber.d("PlayerLoadDataFail: ${event.throwable?.message}")
                         }
+
                         is PlayerLoadDataSuccess -> Timber.d("PlayerLoadDataSuccess")
                         else -> {}
                     }

@@ -21,10 +21,11 @@ package tech.solutionarchitects.testapplication.activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import tech.solutionarchitects.advertisingsdk.api.CloseButtonType
+import tech.solutionarchitects.advertisingsdk.api.common.BannerCreative
 import tech.solutionarchitects.advertisingsdk.api.common.Size
-import tech.solutionarchitects.advertisingsdk.api.feature.banner.BannerAdvertisementQuery
+import tech.solutionarchitects.advertisingsdk.api.feature.banner.BannerCreativeQuery
 import tech.solutionarchitects.testapplication.databinding.ActivityBannerViewBinding
-import tech.solutionarchitects.testapplication.utils.showDebugToast
+import tech.solutionarchitects.testapplication.utils.showDebugMessage
 
 class BannerViewActivity : AppCompatActivity() {
 
@@ -34,23 +35,33 @@ class BannerViewActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityBannerViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        bannerViewLayoutTest()
-    }
 
-
-    private fun bannerViewLayoutTest() {
-        binding.bannerView.load(
-            query = BannerAdvertisementQuery(
-                placementId = "YOUR_PLACEMENT_ID",
-                sizes = listOf(Size(width = 260, height = 106)),
-                floorPrice = 2.0,
-                currency = "RUB",
-                customParams = mapOf("example" to "value", "example2" to "value2")
+        binding.bannerView.query = BannerCreativeQuery(
+            placementId = "YOUR_PLACEMENT_ID",
+            sizes = listOf(Size(width = 260, height = 106)),
+            floorPrice = 2.0,
+            currency = "RUB",
+            customParams = mapOf(
+                "skuId" to "LG00001",
+                "skuName" to "Leggo bricks (speed boat)",
+                "category" to "Kids",
+                "subСategory" to "Lego",
+                "gdprConsent" to "CPsmEWIPsmEWIABAMBFRACBsABEAAAAgEIYgACJAAYiAAA.QRXwAgAAgivA",
+                "ccpa" to "1YNN",
+                "coppa" to "1"
             ),
-            refresh = 30,
-            closeButtonType = CloseButtonType.Countdown(15),
+            closeButtonType = CloseButtonType.Countdown(5)
+        )
+
+        val bannerViewController = BannerCreative(
+            lifecycle = lifecycle,
+            banner = binding.bannerView,
+            refresh = 10
         ) { event ->
-            showDebugToast(event)
+            showDebugMessage(event)
         }
+
+        bannerViewController.load()
     }
+
 }

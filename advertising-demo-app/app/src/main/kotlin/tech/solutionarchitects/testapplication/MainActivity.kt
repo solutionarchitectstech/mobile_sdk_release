@@ -22,12 +22,16 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import tech.solutionarchitects.testapplication.activity.BannerViewActivity
-import tech.solutionarchitects.testapplication.activity.FullscreenBannerViewActivity
+import tech.solutionarchitects.testapplication.activity.MultipleBannerViewActivity
+import tech.solutionarchitects.testapplication.activity.MultipleNativeBannerViewActivity
+import tech.solutionarchitects.testapplication.activity.MultipleProductCreativesActivity
 import tech.solutionarchitects.testapplication.activity.NativeBannerActivity
 import tech.solutionarchitects.testapplication.activity.ProductCreativeActivity
-import tech.solutionarchitects.testapplication.activity.ScrollableActivityWithBanners
+import tech.solutionarchitects.testapplication.activity.ProgrammaticallyBannerViewActivity
+import tech.solutionarchitects.testapplication.activity.ProgrammaticallyNativeBannerViewActivity
+import tech.solutionarchitects.testapplication.activity.RecyclerViewWithBannerActivity
+import tech.solutionarchitects.testapplication.activity.RecyclerViewWithNativeBannerActivity
 import tech.solutionarchitects.testapplication.activity.VastVideoActivity
-import tech.solutionarchitects.testapplication.activity.recyclerView.RecyclerViewActivity
 import tech.solutionarchitects.testapplication.databinding.ActivityMainBinding
 import tech.solutionarchitects.testapplication.utils.requestLocation
 
@@ -42,31 +46,55 @@ class MainActivity : AppCompatActivity() {
 
         requestLocation()
 
+        // SINGLE IMPRESSION
+
+        // InLayout
         binding.openBannerViewButton.setOnClickListener {
             startActivity(Intent(this, BannerViewActivity::class.java))
         }
-
-        binding.openFullScreenViewButton.setOnClickListener {
-            startActivity(Intent(this, FullscreenBannerViewActivity::class.java))
-        }
-
-        binding.recyclerViewScreenViewButton.setOnClickListener {
-            startActivity(Intent(this, RecyclerViewActivity::class.java))
-        }
-
         binding.openNativeBannerView.setOnClickListener {
             startActivity(Intent(this, NativeBannerActivity::class.java))
         }
 
-        binding.scrollableLayoutScreenButton.setOnClickListener {
-            startActivity(Intent(this, ScrollableActivityWithBanners::class.java))
+        // Programmatically
+        binding.programmaticallyBannerButtonView.setOnClickListener {
+            startActivity(Intent(this, ProgrammaticallyBannerViewActivity::class.java))
         }
+        binding.programmaticallyNativeBannerButtonView.setOnClickListener {
+            startActivity(Intent(this, ProgrammaticallyNativeBannerViewActivity::class.java))
+        }
+
+        // Scrollable Layout
+        binding.recyclerViewScreenViewButton.setOnClickListener {
+            startActivity(Intent(this, RecyclerViewWithBannerActivity::class.java))
+        }
+        binding.recyclerNativeBannerViewScreenViewButton.setOnClickListener {
+            startActivity(Intent(this, RecyclerViewWithNativeBannerActivity::class.java))
+        }
+
+        // Product creative
+        binding.productCreativeButton.setOnClickListener {
+            startActivity(Intent(this, ProductCreativeActivity::class.java))
+        }
+
+        // MULTIPLE IMPRESSION (EXPERIMENTAL)
+
+        binding.openMultipleBannerView.setOnClickListener {
+            startActivity(Intent(this, MultipleBannerViewActivity::class.java))
+        }
+
+        binding.openMultipleNativeBannerView.setOnClickListener {
+            startActivity(Intent(this, MultipleNativeBannerViewActivity::class.java))
+        }
+
+        binding.openMultipleProductCreative.setOnClickListener {
+            startActivity(Intent(this, MultipleProductCreativesActivity::class.java))
+        }
+
+        // Media (EXPERIMENTAL)
 
         binding.videoPlayerViewButton.setOnClickListener {
             startActivity(Intent(this, VastVideoActivity::class.java))
-        }
-        binding.productCreativeButton.setOnClickListener {
-            startActivity(Intent(this, ProductCreativeActivity::class.java))
         }
     }
 
