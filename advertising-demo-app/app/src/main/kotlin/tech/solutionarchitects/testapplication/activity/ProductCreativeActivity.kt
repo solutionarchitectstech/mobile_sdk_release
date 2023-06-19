@@ -9,6 +9,8 @@ import tech.solutionarchitects.advertisingsdk.api.feature.product_creative.Produ
 import tech.solutionarchitects.advertisingsdk.api.feature.product_creative.ProductLoadContentSuccess
 import tech.solutionarchitects.advertisingsdk.api.feature.product_creative.ProductLoadDataFail
 import tech.solutionarchitects.advertisingsdk.api.feature.product_creative.ProductLoadDataSuccess
+import tech.solutionarchitects.advertisingsdk.api.feature.product_creative.NoAdContent
+import tech.solutionarchitects.testapplication.R
 import tech.solutionarchitects.testapplication.databinding.ActivityProductCreativeBinding
 import timber.log.Timber
 
@@ -47,6 +49,11 @@ class ProductCreativeActivity : AppCompatActivity() {
 
                 is ProductLoadContentSuccess -> {
                     binding.productCreativeResultTextView.text = event.entity.toString()
+                }
+
+                is NoAdContent -> {
+                    binding.productCreativeResultTextView.text =
+                        getString(R.string.no_advertisement)
                 }
             }
         }

@@ -6,6 +6,7 @@ import tech.solutionarchitects.advertisingsdk.api.common.BannerLoadContentFail
 import tech.solutionarchitects.advertisingsdk.api.common.BannerLoadContentSuccess
 import tech.solutionarchitects.advertisingsdk.api.common.BannerLoadDataFail
 import tech.solutionarchitects.advertisingsdk.api.common.BannerLoadDataSuccess
+import tech.solutionarchitects.advertisingsdk.api.common.NoAdContent
 import tech.solutionarchitects.advertisingsdk.api.common.BannerSentClickStatistic
 import tech.solutionarchitects.advertisingsdk.api.common.BannerSentLoadStatistic
 import tech.solutionarchitects.advertisingsdk.api.common.BannerSentViewStatistic
@@ -21,6 +22,7 @@ fun showDebugMessage(event: BannerCreativeEvent) {
         is BannerSentClickStatistic -> "PlacementID: ${event.view.query?.placementId}\nClick stats sent!"
         is BannerSentLoadStatistic -> "PlacementID: ${event.view.query?.placementId}\nLoad stats sent!"
         is BannerSentViewStatistic -> "PlacementID: ${event.view.query?.placementId}\nView stats sent!"
+        is NoAdContent -> "No advertisement content"
     }
 
     Timber.tag("[DEBUG_MESSAGE]").i(message)

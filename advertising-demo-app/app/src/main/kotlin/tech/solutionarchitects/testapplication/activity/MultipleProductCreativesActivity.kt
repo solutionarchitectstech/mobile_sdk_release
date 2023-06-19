@@ -10,6 +10,8 @@ import tech.solutionarchitects.advertisingsdk.api.feature.product_creative.Produ
 import tech.solutionarchitects.advertisingsdk.api.feature.product_creative.ProductLoadContentSuccess
 import tech.solutionarchitects.advertisingsdk.api.feature.product_creative.ProductLoadDataFail
 import tech.solutionarchitects.advertisingsdk.api.feature.product_creative.ProductLoadDataSuccess
+import tech.solutionarchitects.advertisingsdk.api.feature.product_creative.NoAdContent
+import tech.solutionarchitects.testapplication.R
 import tech.solutionarchitects.testapplication.databinding.ActivityMultipleProductCreativesBinding
 import timber.log.Timber
 
@@ -60,6 +62,11 @@ class MultipleProductCreativesActivity : AppCompatActivity() {
                     Timber.e(event.throwable)
                     Toast.makeText(applicationContext, "Something went wrong", Toast.LENGTH_LONG)
                         .show()
+                }
+
+                is NoAdContent -> {
+                    binding.productCreativeResultTextView.text =
+                        getString(R.string.no_advertisement)
                 }
             }
         }
