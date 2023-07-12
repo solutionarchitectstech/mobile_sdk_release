@@ -90,9 +90,9 @@
         <!-- Media -->
 
         <activity
-            android:name="tech.solutionarchitects.testapplication.activity.VastVideoActivity"
-            android:configChanges="orientation|screenSize"
-            android:exported="true" />
+            android:name="tech.solutionarchitects.testapplication.activity.MediaActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false" />
 
     </application>
 
