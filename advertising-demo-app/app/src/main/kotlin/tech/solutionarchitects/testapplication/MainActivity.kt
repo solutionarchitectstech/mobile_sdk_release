@@ -22,6 +22,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import tech.solutionarchitects.testapplication.activity.BannerViewActivity
+import tech.solutionarchitects.testapplication.activity.MediaActivity
 import tech.solutionarchitects.testapplication.activity.MultipleBannerViewActivity
 import tech.solutionarchitects.testapplication.activity.MultipleNativeBannerViewActivity
 import tech.solutionarchitects.testapplication.activity.MultipleProductCreativesActivity
@@ -31,7 +32,6 @@ import tech.solutionarchitects.testapplication.activity.ProgrammaticallyBannerVi
 import tech.solutionarchitects.testapplication.activity.ProgrammaticallyNativeBannerViewActivity
 import tech.solutionarchitects.testapplication.activity.RecyclerViewWithBannerActivity
 import tech.solutionarchitects.testapplication.activity.RecyclerViewWithNativeBannerActivity
-import tech.solutionarchitects.testapplication.activity.VastVideoActivity
 import tech.solutionarchitects.testapplication.databinding.ActivityMainBinding
 import tech.solutionarchitects.testapplication.utils.requestLocation
 
@@ -91,10 +91,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, MultipleProductCreativesActivity::class.java))
         }
 
-        // Media (EXPERIMENTAL)
+        // Media
 
-        binding.videoPlayerViewButton.setOnClickListener {
-            startActivity(Intent(this, VastVideoActivity::class.java))
+        binding.mediaPlayerViewButton.setOnClickListener {
+            startActivity(Intent(this, MediaActivity::class.java))
         }
     }
 
