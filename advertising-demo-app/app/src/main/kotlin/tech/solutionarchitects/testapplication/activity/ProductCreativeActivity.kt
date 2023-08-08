@@ -10,7 +10,6 @@ import tech.solutionarchitects.advertisingsdk.api.feature.product_creative.Produ
 import tech.solutionarchitects.advertisingsdk.api.feature.product_creative.ProductLoadDataFail
 import tech.solutionarchitects.advertisingsdk.api.feature.product_creative.ProductLoadDataSuccess
 import tech.solutionarchitects.advertisingsdk.api.feature.product_creative.NoAdContent
-import tech.solutionarchitects.testapplication.R
 import tech.solutionarchitects.testapplication.databinding.ActivityProductCreativeBinding
 import timber.log.Timber
 
@@ -41,19 +40,22 @@ class ProductCreativeActivity : AppCompatActivity() {
                         .show()
                 }
 
-                is ProductLoadContentFail -> Toast.makeText(
-                    applicationContext,
-                    "No advertisement for ${event.query.placementId}",
-                    Toast.LENGTH_SHORT
-                ).show()
+                is ProductLoadContentFail -> {
+                    Timber.e(event.throwable)
+                    Toast.makeText(
+                        applicationContext,
+                        "Content loading failed for: ${event.query.placementId}",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
 
                 is ProductLoadContentSuccess -> {
                     binding.productCreativeResultTextView.text = event.entity.toString()
                 }
 
                 is NoAdContent -> {
-                    binding.productCreativeResultTextView.text =
-                        getString(R.string.no_advertisement)
+                    Toast.makeText(applicationContext, "No advertisement for: ${event.query.placementId}", Toast.LENGTH_LONG)
+                        .show()
                 }
             }
         }

@@ -43,7 +43,7 @@ class BannerViewActivity : AppCompatActivity() {
             currency = "RUB",
             customParams = mapOf(
                 "skuId" to "LG00001",
-                "skuName" to "Leggo bricks (speed boat)",
+                "skuName" to "Lego bricks (speed boat)",
                 "category" to "Kids",
                 "subСategory" to "Lego",
                 "gdprConsent" to "CPsmEWIPsmEWIABAMBFRACBsABEAAAAgEIYgACJAAYiAAA.QRXwAgAAgivA",

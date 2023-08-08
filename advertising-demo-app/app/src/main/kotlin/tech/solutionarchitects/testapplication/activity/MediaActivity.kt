@@ -4,11 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import tech.solutionarchitects.advertisingsdk.api.CloseButtonType
-import tech.solutionarchitects.advertisingsdk.api.common.MediaCloseButtonClick
-import tech.solutionarchitects.advertisingsdk.api.common.MediaLoadContentFail
-import tech.solutionarchitects.advertisingsdk.api.common.MediaLoadContentSuccess
-import tech.solutionarchitects.advertisingsdk.api.common.MediaLoadDataFail
-import tech.solutionarchitects.advertisingsdk.api.common.MediaLoadDataSuccess
+import tech.solutionarchitects.advertisingsdk.api.common.MediaCreativeEvent
 import tech.solutionarchitects.advertisingsdk.api.feature.media.MediaCreative
 import tech.solutionarchitects.advertisingsdk.api.feature.media.MediaCreativeQuery
 import tech.solutionarchitects.testapplication.databinding.ActivityMediaBinding
@@ -31,11 +27,12 @@ class MediaActivity : AppCompatActivity() {
 
         mediaCreative = MediaCreative(lifecycle, binding.mediaView) { event ->
             val message: String = when (event) {
-                MediaCloseButtonClick -> "CloseButtonClick"
-                is MediaLoadContentFail -> "LoadContent: Fail"
-                MediaLoadContentSuccess -> "LoadContent: Success"
-                is MediaLoadDataFail -> "LoadData: Fail"
-                MediaLoadDataSuccess -> "LoadData: Success"
+                MediaCreativeEvent.MediaCloseButtonClick -> "CloseButtonClick"
+                is MediaCreativeEvent.MediaLoadContentFail -> "LoadContent: Fail"
+                MediaCreativeEvent.MediaLoadContentSuccess -> "LoadContent: Success"
+                is MediaCreativeEvent.MediaLoadDataFail -> "LoadData: Fail"
+                MediaCreativeEvent.MediaLoadDataSuccess -> "LoadData: Success"
+                MediaCreativeEvent.NoAdContent -> "No ad content"
             }
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
         }

@@ -19,9 +19,9 @@
 package tech.solutionarchitects.testapplication.activity
 
 import android.os.Bundle
-import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import tech.solutionarchitects.advertisingsdk.api.CloseButtonType
 import tech.solutionarchitects.advertisingsdk.api.common.Size
 import tech.solutionarchitects.advertisingsdk.api.feature.banner.BannerCreativeQuery
@@ -41,7 +41,7 @@ class RecyclerViewWithBannerActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         with(binding.recyclerView) {
-            val lm = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
+            val lm = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
             layoutManager = lm
         }
     }
@@ -70,7 +70,7 @@ class RecyclerViewWithBannerActivity : AppCompatActivity() {
                                         closeButtonType = CloseButtonType.Countdown(5)
                                     )
                                 },
-                                refresh = 15
+                                refresh = 10
                             )
                         )
                     } else {

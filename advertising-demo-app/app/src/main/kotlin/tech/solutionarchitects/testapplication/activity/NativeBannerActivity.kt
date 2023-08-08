@@ -20,6 +20,7 @@ package tech.solutionarchitects.testapplication.activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import tech.solutionarchitects.advertisingsdk.api.AdvertisingSDKExperimental
+import tech.solutionarchitects.advertisingsdk.api.CloseButtonType
 import tech.solutionarchitects.advertisingsdk.api.common.BannerCreative
 import tech.solutionarchitects.advertisingsdk.api.common.Size
 import tech.solutionarchitects.advertisingsdk.api.feature.banner.BannerCreativeQuery
@@ -42,15 +43,21 @@ class NativeBannerActivity : AppCompatActivity() {
             floorPrice = 2.0,
             currency = "RUB",
             customParams = mapOf(
-                "gpdrConsent" to "CPsmEWIPsmEWIABAMBFRACBsABEAAAAgEIYgACJAAYiAAA.QRXwAgAAgivA",
+                "skuId" to "LG00001",
+                "skuName" to "Lego bricks (speed boat)",
+                "category" to "Kids",
+                "subСategory" to "Lego",
+                "gdprConsent" to "CPsmEWIPsmEWIABAMBFRACBsABEAAAAgEIYgACJAAYiAAA.QRXwAgAAgivA",
                 "ccpa" to "1YNN",
                 "coppa" to "1"
             ),
+            closeButtonType = CloseButtonType.Countdown(5)
         )
 
         val bannerCreative = BannerCreative(
             lifecycle,
-            banner = binding.nativeBannerView
+            banner = binding.nativeBannerView,
+            refresh = 10
         ) { event ->
             showDebugMessage(event)
         }

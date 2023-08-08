@@ -136,10 +136,36 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/fullScreenButtonsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/programmaticallyContainer">
+
+            <Button
+                android:id="@+id/fullScreenBannerView"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/fullscreen" />
+
+            <Button
+                android:id="@+id/fullScreenNativeBannerView"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/fullscreen" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/scrollContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/programmaticallyContainer">
+            app:layout_constraintTop_toBottomOf="@+id/fullScreenButtonsContainer">
 
             <Button
                 android:id="@+id/recyclerViewScreenViewButton"
@@ -243,6 +269,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
