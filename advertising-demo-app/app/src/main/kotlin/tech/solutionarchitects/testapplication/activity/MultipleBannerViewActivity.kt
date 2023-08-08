@@ -3,6 +3,7 @@ package tech.solutionarchitects.testapplication.activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import tech.solutionarchitects.advertisingsdk.api.AdvertisingSDKExperimental
+import tech.solutionarchitects.advertisingsdk.api.CloseButtonType
 import tech.solutionarchitects.advertisingsdk.api.common.BannerCreative
 import tech.solutionarchitects.advertisingsdk.api.common.Size
 import tech.solutionarchitects.advertisingsdk.api.feature.banner.BannerCreativeQuery

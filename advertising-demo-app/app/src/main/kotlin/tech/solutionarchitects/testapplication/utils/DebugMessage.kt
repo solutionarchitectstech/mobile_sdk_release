@@ -1,6 +1,6 @@
 package tech.solutionarchitects.testapplication.utils
 
-import tech.solutionarchitects.advertisingsdk.api.common.BannerCloseButtonClick
+import tech.solutionarchitects.advertisingsdk.api.common.BannerClose
 import tech.solutionarchitects.advertisingsdk.api.common.BannerCreativeEvent
 import tech.solutionarchitects.advertisingsdk.api.common.BannerLoadContentFail
 import tech.solutionarchitects.advertisingsdk.api.common.BannerLoadContentSuccess
@@ -14,7 +14,7 @@ import timber.log.Timber
 
 fun showDebugMessage(event: BannerCreativeEvent) {
     val message: String = when (event) {
-        is BannerCloseButtonClick -> "PlacementID: ${event.view.query?.placementId}\nClose button clicked!"
+        is BannerClose -> "PlacementID: ${event.view.query?.placementId}\nClose button clicked!"
         is BannerLoadContentFail -> "PlacementID: ${event.view.query?.placementId}\nUnable to display content!\n${event.throwable?.message}"
         is BannerLoadContentSuccess -> "PlacementID: ${event.view.query?.placementId}\nBanner successfully displayed!"
         is BannerLoadDataFail -> "Unable to load data from server!\n${event.throwable?.message}"
@@ -22,7 +22,7 @@ fun showDebugMessage(event: BannerCreativeEvent) {
         is BannerSentClickStatistic -> "PlacementID: ${event.view.query?.placementId}\nClick stats sent!"
         is BannerSentLoadStatistic -> "PlacementID: ${event.view.query?.placementId}\nLoad stats sent!"
         is BannerSentViewStatistic -> "PlacementID: ${event.view.query?.placementId}\nView stats sent!"
-        is NoAdContent -> "No advertisement content"
+        is NoAdContent -> "PlacementID: ${event.view.query?.placementId}\nNo advertisement content!"
     }
 
     Timber.tag("[DEBUG_MESSAGE]").i(message)

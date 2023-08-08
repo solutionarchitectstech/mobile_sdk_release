@@ -20,7 +20,13 @@ package tech.solutionarchitects.testapplication
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import tech.solutionarchitects.advertisingsdk.api.CloseButtonType
+import tech.solutionarchitects.advertisingsdk.api.common.Size
+import tech.solutionarchitects.advertisingsdk.api.feature.banner.BannerCreativeQuery
+import tech.solutionarchitects.advertisingsdk.api.feature.banner.FullscreenBannerViewActivity
+import tech.solutionarchitects.advertisingsdk.api.feature.nativebanner.FullscreenNativeBannerViewActivity
 import tech.solutionarchitects.testapplication.activity.BannerViewActivity
 import tech.solutionarchitects.testapplication.activity.MediaActivity
 import tech.solutionarchitects.testapplication.activity.MultipleBannerViewActivity
@@ -35,7 +41,8 @@ import tech.solutionarchitects.testapplication.activity.RecyclerViewWithNativeBa
 import tech.solutionarchitects.testapplication.databinding.ActivityMainBinding
 import tech.solutionarchitects.testapplication.utils.requestLocation
 
-class MainActivity : AppCompatActivity() {
+class
+MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -62,6 +69,58 @@ class MainActivity : AppCompatActivity() {
         }
         binding.programmaticallyNativeBannerButtonView.setOnClickListener {
             startActivity(Intent(this, ProgrammaticallyNativeBannerViewActivity::class.java))
+        }
+
+        // Fullscreen
+        binding.fullScreenBannerView.setOnClickListener {
+            FullscreenBannerViewActivity.launch(
+                context = this,
+                query = BannerCreativeQuery(
+                    placementId = "YOUR_PLACEMENT_ID",
+                    sizes = listOf(Size(width = 260, height = 106)),
+                    floorPrice = 2.0,
+                    currency = "RUB",
+                    customParams = mapOf(
+                        "skuId" to "LG00001",
+                        "skuName" to "Lego bricks (speed boat)",
+                        "category" to "Kids",
+                        "subСategory" to "Lego",
+                        "gdprConsent" to "CPsmEWIPsmEWIABAMBFRACBsABEAAAAgEIYgACJAAYiAAA.QRXwAgAAgivA",
+                        "ccpa" to "1YNN",
+                        "coppa" to "1"
+                    ),
+                    closeButtonType = CloseButtonType.Countdown(5)
+                ),
+                refresh = 10,
+            ) {
+                Log.d("[FULL_SCREEN_BANNER]", "[EVENT]: $it")
+            }
+        }
+
+        binding.fullScreenNativeBannerView.setOnClickListener {
+            FullscreenNativeBannerViewActivity.launch(
+                context = this,
+                query = BannerCreativeQuery(
+                    placementId = "YOUR_PLACEMENT_ID",
+                    sizes = listOf(Size(width = 260, height = 106)),
+                    floorPrice = 2.0,
+                    currency = "RUB",
+                    customParams = mapOf(
+                        "skuId" to "LG00001",
+                        "skuName" to "Lego bricks (speed boat)",
+                        "category" to "Kids",
+                        "subСategory" to "Lego",
+                        "gdprConsent" to "CPsmEWIPsmEWIABAMBFRACBsABEAAAAgEIYgACJAAYiAAA.QRXwAgAAgivA",
+                        "ccpa" to "1YNN",
+                        "coppa" to "1"
+                    ),
+                    closeButtonType = CloseButtonType.Countdown(5)
+                ),
+                refresh = 10
+            ) {
+                Log.d("[FULL_SCREEN_BANNER]", "[EVENT]: $it")
+            }
+
         }
 
         // Scrollable Layout

@@ -4,32 +4,72 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <tech.solutionarchitects.advertisingsdk.api.feature.nativebanner.NativeBannerView
-        android:id="@+id/bannerView1"
-        android:layout_width="400px"
-        android:layout_height="250px"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/vertical_guideline_66"
+            app:layout_constraintGuide_percent=".66"
+            android:orientation="vertical" />
+
+    <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/vertical_guideline_33"
+            app:layout_constraintGuide_percent=".33"
+            android:orientation="vertical" />
+
+    <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/horizontal_guideline_33"
+            app:layout_constraintGuide_percent=".33"
+            android:orientation="horizontal" />
+
+    <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/horizontal_guideline_66"
+            app:layout_constraintGuide_percent=".66"
+            android:orientation="horizontal" />
 
     <tech.solutionarchitects.advertisingsdk.api.feature.nativebanner.NativeBannerView
-        android:id="@+id/bannerView2"
-        android:layout_width="400px"
-        android:layout_height="250px"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+            android:id="@+id/bannerView1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/vertical_guideline_66"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/horizontal_guideline_33" />
 
     <tech.solutionarchitects.advertisingsdk.api.feature.nativebanner.NativeBannerView
-        android:id="@+id/bannerView3"
-        android:layout_width="400px"
-        android:layout_height="250px"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            android:id="@+id/bannerView2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="5dp"
+            app:layout_constraintStart_toEndOf="@id/vertical_guideline_66"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/horizontal_guideline_66" />
 
     <tech.solutionarchitects.advertisingsdk.api.feature.nativebanner.NativeBannerView
-        android:id="@+id/bannerView4"
-        android:layout_width="400px"
-        android:layout_height="250px"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+            android:id="@+id/bannerView3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/vertical_guideline_33"
+            app:layout_constraintTop_toBottomOf="@id/horizontal_guideline_33"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    <tech.solutionarchitects.advertisingsdk.api.feature.nativebanner.NativeBannerView
+            android:id="@+id/bannerView4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="5dp"
+            app:layout_constraintStart_toEndOf="@+id/vertical_guideline_33"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/horizontal_guideline_66"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
