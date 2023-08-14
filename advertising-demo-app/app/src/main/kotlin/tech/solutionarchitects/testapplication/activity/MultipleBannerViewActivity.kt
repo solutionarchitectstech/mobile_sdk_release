@@ -25,7 +25,8 @@ class MultipleBannerViewActivity : AppCompatActivity() {
             sizes = listOf(Size(width = 260, height = 106)),
             floorPrice = 2.0,
             currency = "RUB",
-            customParams = mapOf("example" to "value", "example2" to "value2")
+            customParams = mapOf("example" to "value", "example2" to "value2"),
+            closeButtonType = CloseButtonType.Countdown(5)
         )
 
         binding.bannerView2.query = BannerCreativeQuery(
@@ -33,7 +34,8 @@ class MultipleBannerViewActivity : AppCompatActivity() {
             sizes = listOf(Size(width = 260, height = 106)),
             floorPrice = 2.0,
             currency = "RUB",
-            customParams = mapOf("example" to "value", "example2" to "value2")
+            customParams = mapOf("example" to "value", "example2" to "value2"),
+            closeButtonType = CloseButtonType.Countdown(5)
         )
 
         binding.bannerView3.query = BannerCreativeQuery(
@@ -41,16 +43,20 @@ class MultipleBannerViewActivity : AppCompatActivity() {
             sizes = listOf(Size(width = 260, height = 106)),
             floorPrice = 2.0,
             currency = "RUB",
-            customParams = mapOf("example" to "value", "example2" to "value2")
+            customParams = mapOf("example" to "value", "example2" to "value2"),
+            closeButtonType = CloseButtonType.Countdown(5)
         )
+        binding.bannerView3.scaleToFit = false
 
         binding.bannerView4.query = BannerCreativeQuery(
             placementId = "YOUR_PLACEMENT_ID",
             sizes = listOf(Size(width = 260, height = 106)),
             floorPrice = 2.0,
             currency = "RUB",
-            customParams = mapOf("example" to "value", "example2" to "value2")
+            customParams = mapOf("example" to "value", "example2" to "value2"),
+            closeButtonType = CloseButtonType.Countdown(5)
         )
+        binding.bannerView4.scaleToFit = false
 
         val bannerCreative: BannerCreative<BannerView> =
             BannerCreative(
