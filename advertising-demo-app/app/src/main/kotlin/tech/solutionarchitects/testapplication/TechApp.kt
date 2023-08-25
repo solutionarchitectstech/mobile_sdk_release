@@ -39,14 +39,14 @@ class TechApp : Application() {
             sessionId = "YOUR_SESSION_ID",
             initConfig = InitConfig(
                 core = CoreDestination(
-                    bannerUrl = "https://<YOUR_ADVERTISING_ENDPOINT>/",
-                    nativeBannerUrl = "https://<YOUR_ADVERTISING_ENDPOINT>/",
-                    productCreativeUrl = "https://<YOUR_PRODUCT_CREATIVE_ENDPOINT>/",
-                    videoUrl = "https://<YOUR_VIDEO_ENDPOINT>/"
+                    bannerCreativeUrl = "https://YOUR_BANNER_CREATIVE_ENDPOINT",
+                    mediaCreativeUrl = "https://YOUR_MEDIA_CREATIVE_ENDPOINT",
+                    productCreativeUrl = "https://YOUR_PRODUCT_CREATIVE_ENDPOINT"
                 ),
             ),
             headers = mapOf(
                 "Authorization" to { "Bearer YOUR_AUTH_TOKEN" },
+                "User-Agent" to { "YOUR_CUSTOM_USER_AGENT" }
             ),
             debugMode = true,
         )
