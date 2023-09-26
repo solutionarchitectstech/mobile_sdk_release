@@ -38,6 +38,9 @@ class MultipleBannerViewActivity : AppCompatActivity() {
             closeButtonType = CloseButtonType.Countdown(5)
         )
 
+        binding.bannerView2.isScrollEnabled = true
+        binding.bannerView2.scaleToFit = false
+
         binding.bannerView3.query = BannerCreativeQuery(
             placementId = "YOUR_PLACEMENT_ID",
             sizes = listOf(Size(width = 260, height = 106)),
@@ -57,6 +60,7 @@ class MultipleBannerViewActivity : AppCompatActivity() {
             closeButtonType = CloseButtonType.Countdown(5)
         )
         binding.bannerView4.scaleToFit = false
+        binding.bannerView4.isScrollEnabled = true
 
         val bannerCreative: BannerCreative<BannerView> =
             BannerCreative(
