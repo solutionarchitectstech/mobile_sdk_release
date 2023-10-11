@@ -6,10 +6,11 @@ import tech.solutionarchitects.advertisingsdk.api.common.BannerLoadContentFail
 import tech.solutionarchitects.advertisingsdk.api.common.BannerLoadContentSuccess
 import tech.solutionarchitects.advertisingsdk.api.common.BannerLoadDataFail
 import tech.solutionarchitects.advertisingsdk.api.common.BannerLoadDataSuccess
-import tech.solutionarchitects.advertisingsdk.api.common.NoAdContent
 import tech.solutionarchitects.advertisingsdk.api.common.BannerSentClickStatistic
 import tech.solutionarchitects.advertisingsdk.api.common.BannerSentLoadStatistic
 import tech.solutionarchitects.advertisingsdk.api.common.BannerSentViewStatistic
+import tech.solutionarchitects.advertisingsdk.api.common.NoAdContent
+import tech.solutionarchitects.advertisingsdk.api.common.OnTap
 import timber.log.Timber
 
 fun showDebugMessage(event: BannerCreativeEvent) {
@@ -23,6 +24,7 @@ fun showDebugMessage(event: BannerCreativeEvent) {
         is BannerSentLoadStatistic -> "PlacementID: ${event.view.query?.placementId}\nLoad stats sent!"
         is BannerSentViewStatistic -> "PlacementID: ${event.view.query?.placementId}\nView stats sent!"
         is NoAdContent -> "PlacementID: ${event.view.query?.placementId}\nNo advertisement content!"
+        is OnTap -> "PlacementID: ${event.view.query?.placementId} | Redirect url: ${event.redirectUrl} Tap on banner!"
     }
 
     Timber.tag("[DEBUG_MESSAGE]").i(message)
