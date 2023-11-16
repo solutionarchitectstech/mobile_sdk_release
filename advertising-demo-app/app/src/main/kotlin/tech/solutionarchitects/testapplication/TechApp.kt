@@ -39,9 +39,8 @@ class TechApp : Application() {
             sessionId = "YOUR_SESSION_ID",
             initConfig = InitConfig(
                 core = CoreDestination(
-                    bannerCreativeUrl = "https://YOUR_BANNER_CREATIVE_ENDPOINT",
-                    mediaCreativeUrl = "https://YOUR_MEDIA_CREATIVE_ENDPOINT",
-                    productCreativeUrl = "https://YOUR_PRODUCT_CREATIVE_ENDPOINT"
+                    bannerUrl = "https://YOUR_BANNER_CREATIVE_ENDPOINT",
+                    productUrl = "https://YOUR_PRODUCT_CREATIVE_ENDPOINT",
                 ),
             ),
             headers = mapOf(

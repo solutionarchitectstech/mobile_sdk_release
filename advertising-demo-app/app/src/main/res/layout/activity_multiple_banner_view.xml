@@ -32,7 +32,7 @@
             app:layout_constraintGuide_percent=".66"
             android:orientation="horizontal" />
 
-    <tech.solutionarchitects.advertisingsdk.api.feature.banner.BannerView
+    <tech.solutionarchitects.advertisingsdk.internal.feature.banner.BannerView
         android:id="@+id/bannerView1"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -42,7 +42,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/horizontal_guideline_33" />
 
-    <tech.solutionarchitects.advertisingsdk.api.feature.banner.BannerView
+    <tech.solutionarchitects.advertisingsdk.internal.feature.banner.BannerView
         android:id="@+id/bannerView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -52,7 +52,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/horizontal_guideline_66" />
 
-    <tech.solutionarchitects.advertisingsdk.api.feature.banner.BannerView
+    <tech.solutionarchitects.advertisingsdk.internal.feature.banner.BannerView
         android:id="@+id/bannerView3"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -62,7 +62,7 @@
         app:layout_constraintTop_toBottomOf="@id/horizontal_guideline_33"
         app:layout_constraintBottom_toBottomOf="parent" />
 
-    <tech.solutionarchitects.advertisingsdk.api.feature.banner.BannerView
+    <tech.solutionarchitects.advertisingsdk.internal.feature.banner.BannerView
         android:id="@+id/bannerView4"
         android:layout_width="0dp"
         android:layout_height="0dp"

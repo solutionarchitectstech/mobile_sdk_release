@@ -20,29 +20,14 @@ package tech.solutionarchitects.testapplication
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import tech.solutionarchitects.advertisingsdk.api.CloseButtonType
-import tech.solutionarchitects.advertisingsdk.api.common.Size
-import tech.solutionarchitects.advertisingsdk.api.feature.banner.BannerCreativeQuery
-import tech.solutionarchitects.advertisingsdk.api.feature.banner.FullscreenBannerViewActivity
-import tech.solutionarchitects.advertisingsdk.api.feature.nativebanner.FullscreenNativeBannerViewActivity
-import tech.solutionarchitects.testapplication.activity.BannerViewActivity
-import tech.solutionarchitects.testapplication.activity.MediaActivity
-import tech.solutionarchitects.testapplication.activity.MultipleBannerViewActivity
-import tech.solutionarchitects.testapplication.activity.MultipleNativeBannerViewActivity
+import tech.solutionarchitects.testapplication.activity.CreativeActivity
 import tech.solutionarchitects.testapplication.activity.MultipleProductCreativesActivity
-import tech.solutionarchitects.testapplication.activity.NativeBannerActivity
 import tech.solutionarchitects.testapplication.activity.ProductCreativeActivity
-import tech.solutionarchitects.testapplication.activity.ProgrammaticallyBannerViewActivity
-import tech.solutionarchitects.testapplication.activity.ProgrammaticallyNativeBannerViewActivity
-import tech.solutionarchitects.testapplication.activity.RecyclerViewWithBannerActivity
-import tech.solutionarchitects.testapplication.activity.RecyclerViewWithNativeBannerActivity
 import tech.solutionarchitects.testapplication.databinding.ActivityMainBinding
 import tech.solutionarchitects.testapplication.utils.requestLocation
 
-class
-MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -53,82 +38,10 @@ MainActivity : AppCompatActivity() {
 
         requestLocation()
 
-        // SINGLE IMPRESSION
+        // Creative
 
-        // InLayout
-        binding.openBannerViewButton.setOnClickListener {
-            startActivity(Intent(this, BannerViewActivity::class.java))
-        }
-        binding.openNativeBannerView.setOnClickListener {
-            startActivity(Intent(this, NativeBannerActivity::class.java))
-        }
-
-        // Programmatically
-        binding.programmaticallyBannerButtonView.setOnClickListener {
-            startActivity(Intent(this, ProgrammaticallyBannerViewActivity::class.java))
-        }
-        binding.programmaticallyNativeBannerButtonView.setOnClickListener {
-            startActivity(Intent(this, ProgrammaticallyNativeBannerViewActivity::class.java))
-        }
-
-        // Fullscreen
-        binding.fullScreenBannerView.setOnClickListener {
-            FullscreenBannerViewActivity.launch(
-                context = this,
-                query = BannerCreativeQuery(
-                    placementId = "YOUR_PLACEMENT_ID",
-                    sizes = listOf(Size(width = 260, height = 106)),
-                    floorPrice = 2.0,
-                    currency = "RUB",
-                    customParams = mapOf(
-                        "skuId" to "LG00001",
-                        "skuName" to "Lego bricks (speed boat)",
-                        "category" to "Kids",
-                        "subСategory" to "Lego",
-                        "gdprConsent" to "CPsmEWIPsmEWIABAMBFRACBsABEAAAAgEIYgACJAAYiAAA.QRXwAgAAgivA",
-                        "ccpa" to "1YNN",
-                        "coppa" to "1"
-                    ),
-                    closeButtonType = CloseButtonType.Countdown(5)
-                ),
-                refresh = 10,
-            ) {
-                Log.d("[FULL_SCREEN_BANNER]", "[EVENT]: $it")
-            }
-        }
-
-        binding.fullScreenNativeBannerView.setOnClickListener {
-            FullscreenNativeBannerViewActivity.launch(
-                context = this,
-                query = BannerCreativeQuery(
-                    placementId = "YOUR_PLACEMENT_ID",
-                    sizes = listOf(Size(width = 260, height = 106)),
-                    floorPrice = 2.0,
-                    currency = "RUB",
-                    customParams = mapOf(
-                        "skuId" to "LG00001",
-                        "skuName" to "Lego bricks (speed boat)",
-                        "category" to "Kids",
-                        "subСategory" to "Lego",
-                        "gdprConsent" to "CPsmEWIPsmEWIABAMBFRACBsABEAAAAgEIYgACJAAYiAAA.QRXwAgAAgivA",
-                        "ccpa" to "1YNN",
-                        "coppa" to "1"
-                    ),
-                    closeButtonType = CloseButtonType.Countdown(5)
-                ),
-                refresh = 10
-            ) {
-                Log.d("[FULL_SCREEN_BANNER]", "[EVENT]: $it")
-            }
-
-        }
-
-        // Scrollable Layout
-        binding.recyclerViewScreenViewButton.setOnClickListener {
-            startActivity(Intent(this, RecyclerViewWithBannerActivity::class.java))
-        }
-        binding.recyclerNativeBannerViewScreenViewButton.setOnClickListener {
-            startActivity(Intent(this, RecyclerViewWithNativeBannerActivity::class.java))
+        binding.creativeButton.setOnClickListener {
+            startActivity(Intent(this, CreativeActivity::class.java))
         }
 
         // Product creative
@@ -138,22 +51,8 @@ MainActivity : AppCompatActivity() {
 
         // MULTIPLE IMPRESSION (EXPERIMENTAL)
 
-        binding.openMultipleBannerView.setOnClickListener {
-            startActivity(Intent(this, MultipleBannerViewActivity::class.java))
-        }
-
-        binding.openMultipleNativeBannerView.setOnClickListener {
-            startActivity(Intent(this, MultipleNativeBannerViewActivity::class.java))
-        }
-
         binding.openMultipleProductCreative.setOnClickListener {
             startActivity(Intent(this, MultipleProductCreativesActivity::class.java))
-        }
-
-        // Media
-
-        binding.mediaPlayerViewButton.setOnClickListener {
-            startActivity(Intent(this, MediaActivity::class.java))
         }
     }
 

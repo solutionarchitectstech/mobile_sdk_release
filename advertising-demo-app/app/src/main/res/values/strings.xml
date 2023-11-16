@@ -65,7 +65,6 @@
     <string name="scrollable_layout_screen_button">Scrollable layout</string>
     <string name="open_multiple_banner_view">HTML banners</string>
     <string name="open_multiple_native_banner_view">Native banners</string>
-    <string name="use_rtb_for_audio_advertisement">Use RTB for audio advertisement</string>
     <string name="placeholder_show_hide">PLACEHOLDER SHOW/HIDE</string>
     <string name="product_creative">Product creative</string>
     <string name="multiple_product_creative">Multiplе product creative</string>
@@ -79,7 +78,8 @@
     <string name="programmatically">Programmatically</string>
     <string name="media_impressions">MEDIA (EXPERIMENTAL)</string>
     <string name="media">Media</string>
-    <string name="banner_viewed_alert">id: %s | event: VIEWED</string>
-    <string name="banner_loaded_alert">id: %s | event: LOADED</string>
-    <string name="banner_tapped_alert">id: %s | event: CLICKED</string>
+    <string name="creative">Creative</string>
+    <string name="load_banner">Load banner</string>
+    <string name="load_media">Load media</string>
+    <string name="load_native_banner">Load native banner</string>
 </resources>

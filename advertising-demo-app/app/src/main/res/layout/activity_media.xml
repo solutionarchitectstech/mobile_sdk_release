@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".activity.MediaActivity">
 
-    <tech.solutionarchitects.advertisingsdk.api.feature.media.MediaView
+    <tech.solutionarchitects.advertisingsdk.internal.feature.media.MediaView
         android:id="@+id/mediaView"
         android:layout_width="match_parent"
         android:layout_height="200dp"
