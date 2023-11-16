@@ -39,34 +39,12 @@
             </intent-filter>
         </activity>
 
-        <!-- InLayout -->
+        <!-- Creative -->
+
         <activity
-            android:name="tech.solutionarchitects.testapplication.activity.BannerViewActivity"
+            android:name=".activity.CreativeActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true" />
-        <activity
-            android:name=".activity.NativeBannerActivity"
-            android:exported="true" />
-
-        <!-- Programmatically -->
-
-        <activity
-            android:name=".activity.ProgrammaticallyBannerViewActivity"
-            android:exported="true" />
-
-        <activity
-            android:name="tech.solutionarchitects.testapplication.activity.ProgrammaticallyNativeBannerViewActivity"
-            android:exported="false" />
-
-        <!-- Scrollable layout -->
-
-        <activity
-            android:name="tech.solutionarchitects.testapplication.activity.RecyclerViewWithBannerActivity"
-            android:exported="true" />
-
-        <activity
-            android:name="tech.solutionarchitects.testapplication.activity.RecyclerViewWithNativeBannerActivity"
-            android:exported="true" />
-
 
         <!--   Product Creative    -->
         <activity
@@ -76,24 +54,8 @@
         <!-- MULTIPLE IMPRESSIONS -->
 
         <activity
-            android:name=".activity.MultipleBannerViewActivity"
-            android:exported="true" />
-
-        <activity
-            android:name=".activity.MultipleNativeBannerViewActivity"
-            android:exported="true" />
-
-        <activity
             android:name="tech.solutionarchitects.testapplication.activity.MultipleProductCreativesActivity"
             android:exported="false" />
-
-        <!-- Media -->
-
-        <activity
-            android:name="tech.solutionarchitects.testapplication.activity.MediaActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:exported="false" />
-
     </application>
 
 </manifest>
