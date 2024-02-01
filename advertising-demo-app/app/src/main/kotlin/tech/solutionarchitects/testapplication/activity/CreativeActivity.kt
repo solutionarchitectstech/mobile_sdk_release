@@ -58,7 +58,7 @@ class CreativeActivity : AppCompatActivity() {
 
         binding.loadBannerButton.setOnClickListener {
             creativeView.query = CreativeQuery(
-                placementId = "YOUR_PLACEMENT_ID",
+                placementId = "HTML_BANNER",
                 sizes = listOf(Size(width = 260, height = 106)),
                 floorPrice = 2.0,
                 currency = "RUB",
@@ -66,7 +66,7 @@ class CreativeActivity : AppCompatActivity() {
                     "skuId" to "LG00001",
                     "skuName" to "Lego bricks (speed boat)",
                     "category" to "Kids",
-                    "subСategory" to "Lego",
+                    "subCategory" to "Lego",
                     "gdprConsent" to "CPsmEWIPsmEWIABAMBFRACBsABEAAAAgEIYgACJAAYiAAA.QRXwAgAAgivA",
                     "ccpa" to "1YNN",
                     "coppa" to "1"
@@ -76,21 +76,12 @@ class CreativeActivity : AppCompatActivity() {
             creative.load()
         }
 
-        binding.loadNativeBannerButton.setOnClickListener {
+        binding.loadImageBannerButton.setOnClickListener {
             creativeView.query = CreativeQuery(
-                placementId = "YOUR_PLACEMENT_ID",
+                placementId = "IMAGE_BANNER",
                 sizes = listOf(Size(width = 260, height = 106)),
                 floorPrice = 2.0,
                 currency = "RUB",
-                customParams = mapOf(
-                    "skuId" to "LG00001",
-                    "skuName" to "Lego bricks (speed boat)",
-                    "category" to "Kids",
-                    "subСategory" to "Lego",
-                    "gdprConsent" to "CPsmEWIPsmEWIABAMBFRACBsABEAAAAgEIYgACJAAYiAAA.QRXwAgAAgivA",
-                    "ccpa" to "1YNN",
-                    "coppa" to "1"
-                ),
             )
 
             creative.load()
@@ -98,7 +89,7 @@ class CreativeActivity : AppCompatActivity() {
 
         binding.loadMediaButton.setOnClickListener {
             creativeView.query = CreativeQuery(
-                placementId = "YOUR_PLACEMENT_ID",
+                placementId = "VAST_Wrapper_Compound",
                 customParams = emptyMap(),
                 sizes = listOf(Size(width = 260, height = 106))
             )
