@@ -63,8 +63,8 @@
     <string name="settings">Settings</string>
     <string name="save">Save</string>
     <string name="scrollable_layout_screen_button">Scrollable layout</string>
-    <string name="open_multiple_banner_view">HTML banners</string>
-    <string name="open_multiple_native_banner_view">Native banners</string>
+    <string name="open_multiple_html_banner_view">HTML banners</string>
+    <string name="open_multiple_image_banner_view">Image banners</string>
     <string name="placeholder_show_hide">PLACEHOLDER SHOW/HIDE</string>
     <string name="product_creative">Product creative</string>
     <string name="multiple_product_creative">Multiplе product creative</string>
@@ -72,14 +72,14 @@
     <string name="inlayout">InLayout</string>
     <string name="multiple_impressions">MULTIPLE IMPRESSIONS (EXPERIMENTAL)</string>
     <string name="html_banners">HTML banners</string>
-    <string name="native_banners">Native banners (EXPERIMENTAL)</string>
+    <string name="image_banners">Image banners (EXPERIMENTAL)</string>
     <string name="product_creatives">Product Creatives</string>
     <string name="fullscreen">Fullscreen</string>
     <string name="programmatically">Programmatically</string>
     <string name="media_impressions">MEDIA (EXPERIMENTAL)</string>
     <string name="media">Media</string>
     <string name="creative">Creative</string>
-    <string name="load_banner">Load banner</string>
+    <string name="load_html_banner">Load HTML banner</string>
     <string name="load_media">Load media</string>
-    <string name="load_native_banner">Load native banner</string>
+    <string name="load_image_banner">Load image banner</string>
 </resources>

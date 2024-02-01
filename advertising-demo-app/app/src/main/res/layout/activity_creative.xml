@@ -19,16 +19,16 @@
         android:id="@+id/loadBannerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/load_banner"
-        app:layout_constraintBottom_toTopOf="@+id/loadNativeBannerButton"
+        android:text="@string/load_html_banner"
+        app:layout_constraintBottom_toTopOf="@+id/loadImageBannerButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/loadNativeBannerButton"
+        android:id="@+id/loadImageBannerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/load_native_banner"
+        android:text="@string/load_image_banner"
         app:layout_constraintBottom_toTopOf="@+id/loadMediaButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

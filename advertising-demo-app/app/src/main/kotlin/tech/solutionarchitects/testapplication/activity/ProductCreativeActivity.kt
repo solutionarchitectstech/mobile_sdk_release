@@ -21,7 +21,7 @@ class ProductCreativeActivity : AppCompatActivity() {
 
         val productCreative = ProductCreative(
             query = ProductCreativeQuery(
-                placementId = "YOUR_PLACEMENT_ID",
+                placementId = "PRODUCT_01",
                 customParams = mapOf("SOME_CUSTOM_KEY" to "SOME_CUSTOM_VALUE"),
             ),
             listener = object : ProductCreativeEventListener {

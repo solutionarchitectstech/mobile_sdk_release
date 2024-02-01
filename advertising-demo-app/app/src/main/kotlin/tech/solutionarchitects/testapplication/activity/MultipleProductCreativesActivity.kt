@@ -24,11 +24,11 @@ class MultipleProductCreativesActivity : AppCompatActivity() {
         val productCreative = ProductCreative(
             queries = listOf(
                 ProductCreativeQuery(
-                    placementId = "YOUR_PLACEMENT_ID",
+                    placementId = "PRODUCT_01",
                     customParams = mapOf("SOME_CUSTOM_KEY" to "SOME_CUSTOM_VALUE"),
                 ),
                 ProductCreativeQuery(
-                    placementId = "YOUR_PLACEMENT_ID",
+                    placementId = "PRODUCT_02",
                     customParams = mapOf("SOME_CUSTOM_KEY" to "SOME_CUSTOM_VALUE"),
                 )
             ),
@@ -45,7 +45,9 @@ class MultipleProductCreativesActivity : AppCompatActivity() {
                 }
 
                 override fun onLoadContentSuccess(entity: ProductCreativeEntity) {
-                    binding.productCreativeResultTextView.text = entity.toString()
+                    "${binding.productCreativeResultTextView.text}\n\n${entity}".also {
+                        binding.productCreativeResultTextView.text = it
+                    }
                 }
 
                 override fun onLoadContentFail(query: ProductCreativeQuery, throwable: Throwable?) {
