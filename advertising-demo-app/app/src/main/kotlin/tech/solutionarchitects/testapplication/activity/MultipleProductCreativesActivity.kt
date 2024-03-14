@@ -64,7 +64,8 @@ class MultipleProductCreativesActivity : AppCompatActivity() {
                         applicationContext,
                         "No advertisement for: ${query.placementId}",
                         Toast.LENGTH_LONG
-                    ).show()
+                    )
+                        .show()
                 }
             }
         )
