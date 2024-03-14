@@ -19,6 +19,7 @@ class ProductCreativeActivity : AppCompatActivity() {
         binding = ActivityProductCreativeBinding.inflate(layoutInflater, null, false)
         setContentView(binding.root)
 
+
         val productCreative = ProductCreative(
             query = ProductCreativeQuery(
                 placementId = "PRODUCT_01",
@@ -54,7 +55,8 @@ class ProductCreativeActivity : AppCompatActivity() {
                         applicationContext,
                         "No advertisement for: ${query.placementId}",
                         Toast.LENGTH_LONG
-                    ).show()
+                    )
+                        .show()
                 }
             }
         )
