@@ -16,15 +16,14 @@
         app:layout_constraintBottom_toBottomOf="@+id/productCreativeResultTextView">
 
         <Button
-            android:id="@+id/multipleProductCreativesButton"
+            android:id="@+id/getProductCreativesButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/multiple_product_creative"
+            android:text="@string/get_product_creatives"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

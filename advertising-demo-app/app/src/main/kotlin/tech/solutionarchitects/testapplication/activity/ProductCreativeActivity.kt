@@ -1,6 +1,7 @@
 package tech.solutionarchitects.testapplication.activity
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import tech.solutionarchitects.advertisingsdk.api.feature.product_creative.ProductCreative
@@ -13,56 +14,51 @@ import timber.log.Timber
 class ProductCreativeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityProductCreativeBinding
+
+    private lateinit var productCreative: ProductCreative
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityProductCreativeBinding.inflate(layoutInflater, null, false)
-        setContentView(binding.root)
 
-
-        val productCreative = ProductCreative(
+        productCreative = ProductCreative(
             query = ProductCreativeQuery(
                 placementId = "PRODUCT_01",
                 customParams = mapOf("SOME_CUSTOM_KEY" to "SOME_CUSTOM_VALUE"),
             ),
             listener = object : ProductCreativeEventListener {
                 override fun onLoadDataSuccess() {
-                    Toast.makeText(applicationContext, "Data from server loaded", Toast.LENGTH_LONG)
-                        .show()
+                    log(Log.DEBUG, "onLoadDataSuccess")
                 }
 
                 override fun onLoadDataFail(throwable: Throwable) {
-                    Timber.e(throwable)
-                    Toast.makeText(applicationContext, "Something went wrong", Toast.LENGTH_LONG)
-                        .show()
+                    log(Log.ERROR, "onLoadDataFail: ${throwable.message}")
                 }
 
                 override fun onLoadContentSuccess(entity: ProductCreativeEntity) {
+                    log(Log.DEBUG, "onLoadContentSuccess[${entity.placementId}]")
                     binding.productCreativeResultTextView.text = entity.toString()
                 }
 
                 override fun onLoadContentFail(query: ProductCreativeQuery, throwable: Throwable?) {
-                    Timber.e(throwable)
-                    Toast.makeText(
-                        applicationContext,
-                        "Content loading failed for: ${query.placementId}",
-                        Toast.LENGTH_LONG
-                    ).show()
+                    log(Log.ERROR, "onLoadContentFail[${query.placementId}]: ${throwable?.message}")
                 }
 
                 override fun onNoAdContent(query: ProductCreativeQuery) {
-                    Toast.makeText(
-                        applicationContext,
-                        "No advertisement for: ${query.placementId}",
-                        Toast.LENGTH_LONG
-                    )
-                        .show()
+                    log(Log.WARN, "onNoAdContent[${query.placementId}]")
                 }
             }
         )
 
-        binding.productCreativeButton.setOnClickListener {
+        binding.getProductCreativeButton.setOnClickListener {
             productCreative.load()
         }
+
+        setContentView(binding.root)
+    }
+
+    private fun log(priority: Int, message: String) {
+        Timber.log(priority, message)
+        Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
     }
 }

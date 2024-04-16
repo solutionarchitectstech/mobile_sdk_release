@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fadeScrollbars="false"
+    tools:context=".activity.CreativeMediaActivity"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".activity.CreativeMediaActivity">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="16:9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/vastLabelTextView">
+
+            <tech.solutionarchitects.advertisingsdk.api.feature.creative.CreativeView
+                android:id="@+id/creativeView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/vastLabelTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/controlContainer"
+            android:textSize="20sp"
+            android:textAlignment="center" />
+
+        <LinearLayout
+            android:id="@+id/controlContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <Button
+                android:id="@+id/vastInlineSimpleButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/vast_inline_simple"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/vastWrapperSimpleButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/vast_wrapper_simple"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/vastWrapperCompoundButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/vast_wrapper_compound"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/vastWrapperChainLess5Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/vast_wrapper_chain_less_5"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/vastWrapperChainGreater5Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/vast_wrapper_chain_greater_5"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/vastWrapperChainLoopButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/vast_wrapper_chain_loop"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

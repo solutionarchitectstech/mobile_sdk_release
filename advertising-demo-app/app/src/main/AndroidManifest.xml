@@ -15,8 +15,7 @@
   ~ The copyright notice above does not provide evidence of any actual or intended publication or disclosure
   ~ of this source code, which in
   -->
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="tech.solutionarchitects.testapplication">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -39,14 +38,33 @@
             </intent-filter>
         </activity>
 
-        <!-- Creative -->
+        <!-- SINGLE IMPRESSION -->
 
         <activity
-            android:name=".activity.CreativeActivity"
+            android:name=".activity.CreativeInLayoutActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true" />
 
-        <!--   Product Creative    -->
+        <activity
+            android:name=".activity.CreativeProgrammaticallyActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="true" />
+
+        <activity
+            android:name=".activity.CreativeMediaActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="true" />
+
+        <activity
+            android:name=".activity.CreativeFullscreenActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="true" />
+
+        <activity
+            android:name=".activity.CreativeRecyclerViewActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="true" />
+
         <activity
             android:name=".activity.ProductCreativeActivity"
             android:exported="true" />
@@ -54,7 +72,12 @@
         <!-- MULTIPLE IMPRESSIONS -->
 
         <activity
-            android:name="tech.solutionarchitects.testapplication.activity.MultipleProductCreativesActivity"
+            android:name=".activity.MultipleCreativesActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="true" />
+
+        <activity
+            android:name=".activity.MultipleProductCreativesActivity"
             android:exported="false" />
     </application>
 
