@@ -5,35 +5,35 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.Guideline
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/vertical_guideline_66"
-            app:layout_constraintGuide_percent=".66"
-            android:orientation="vertical" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/vertical_guideline_66"
+        app:layout_constraintGuide_percent=".66"
+        android:orientation="vertical" />
 
     <androidx.constraintlayout.widget.Guideline
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/vertical_guideline_33"
-            app:layout_constraintGuide_percent=".33"
-            android:orientation="vertical" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/vertical_guideline_33"
+        app:layout_constraintGuide_percent=".33"
+        android:orientation="vertical" />
 
     <androidx.constraintlayout.widget.Guideline
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/horizontal_guideline_33"
-            app:layout_constraintGuide_percent=".33"
-            android:orientation="horizontal" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/horizontal_guideline_33"
+        app:layout_constraintGuide_percent=".33"
+        android:orientation="horizontal" />
 
     <androidx.constraintlayout.widget.Guideline
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/horizontal_guideline_66"
-            app:layout_constraintGuide_percent=".66"
-            android:orientation="horizontal" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/horizontal_guideline_66"
+        app:layout_constraintGuide_percent=".66"
+        android:orientation="horizontal" />
 
-    <tech.solutionarchitects.advertisingsdk.internal.feature.banner.HtmlBannerView
-        android:id="@+id/bannerView1"
+    <tech.solutionarchitects.advertisingsdk.api.feature.creative.CreativeView
+        android:id="@+id/creativeView1"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="5dp"
@@ -42,8 +42,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/horizontal_guideline_33" />
 
-    <tech.solutionarchitects.advertisingsdk.internal.feature.banner.HtmlBannerView
-        android:id="@+id/bannerView2"
+    <tech.solutionarchitects.advertisingsdk.api.feature.creative.CreativeView
+        android:id="@+id/creativeView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="5dp"
@@ -52,8 +52,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/horizontal_guideline_66" />
 
-    <tech.solutionarchitects.advertisingsdk.internal.feature.banner.HtmlBannerView
-        android:id="@+id/bannerView3"
+    <tech.solutionarchitects.advertisingsdk.api.feature.creative.CreativeView
+        android:id="@+id/creativeView3"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="5dp"
@@ -62,8 +62,8 @@
         app:layout_constraintTop_toBottomOf="@id/horizontal_guideline_33"
         app:layout_constraintBottom_toBottomOf="parent" />
 
-    <tech.solutionarchitects.advertisingsdk.internal.feature.banner.HtmlBannerView
-        android:id="@+id/bannerView4"
+    <tech.solutionarchitects.advertisingsdk.api.feature.creative.CreativeView
+        android:id="@+id/creativeView4"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="5dp"

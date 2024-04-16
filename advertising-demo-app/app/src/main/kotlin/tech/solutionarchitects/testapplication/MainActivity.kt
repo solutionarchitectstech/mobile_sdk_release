@@ -21,9 +21,7 @@ package tech.solutionarchitects.testapplication
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import tech.solutionarchitects.testapplication.activity.CreativeActivity
-import tech.solutionarchitects.testapplication.activity.MultipleProductCreativesActivity
-import tech.solutionarchitects.testapplication.activity.ProductCreativeActivity
+import tech.solutionarchitects.testapplication.activity.*
 import tech.solutionarchitects.testapplication.databinding.ActivityMainBinding
 import tech.solutionarchitects.testapplication.utils.requestLocation
 
@@ -38,22 +36,40 @@ class MainActivity : AppCompatActivity() {
 
         requestLocation()
 
-        // Creative
+        // SINGLE IMPRESSION
 
-        binding.creativeButton.setOnClickListener {
-            startActivity(Intent(this, CreativeActivity::class.java))
+        binding.bannerInLayoutButton.setOnClickListener {
+            startActivity(Intent(this, CreativeInLayoutActivity::class.java))
         }
 
-        // Product creative
+        binding.bannerProgrammaticallyButton.setOnClickListener {
+            startActivity(Intent(this, CreativeProgrammaticallyActivity::class.java))
+        }
+
+        binding.bannerMediaButton.setOnClickListener {
+            startActivity(Intent(this, CreativeMediaActivity::class.java))
+        }
+
+        binding.bannerFullscreenButton.setOnClickListener {
+            startActivity(Intent(this, CreativeFullscreenActivity::class.java))
+        }
+
+        binding.bannerCollectionViewButton.setOnClickListener {
+            startActivity(Intent(this, CreativeRecyclerViewActivity::class.java))
+        }
+
         binding.productCreativeButton.setOnClickListener {
             startActivity(Intent(this, ProductCreativeActivity::class.java))
         }
 
-        // MULTIPLE IMPRESSION (EXPERIMENTAL)
+        // MULTIPLE IMPRESSIONS
 
-        binding.openMultipleProductCreative.setOnClickListener {
+        binding.bannersButton.setOnClickListener {
+            startActivity(Intent(this, MultipleCreativesActivity::class.java))
+        }
+
+        binding.productCreativesButton.setOnClickListener {
             startActivity(Intent(this, MultipleProductCreativesActivity::class.java))
         }
     }
-
 }
