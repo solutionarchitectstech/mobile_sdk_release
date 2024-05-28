@@ -7,30 +7,44 @@
     <androidx.constraintlayout.widget.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/vertical_guideline_66"
-        app:layout_constraintGuide_percent=".66"
-        android:orientation="vertical" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/vertical_guideline_33"
-        app:layout_constraintGuide_percent=".33"
-        android:orientation="vertical" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/horizontal_guideline_33"
+        android:id="@+id/horizontal_guideline_top_max"
         app:layout_constraintGuide_percent=".33"
         android:orientation="horizontal" />
 
     <androidx.constraintlayout.widget.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/horizontal_guideline_66"
+        android:id="@+id/horizontal_guideline_top_min"
+        app:layout_constraintGuide_percent=".20"
+        android:orientation="horizontal" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/horizontal_guideline_bottom_min"
         app:layout_constraintGuide_percent=".66"
         android:orientation="horizontal" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/horizontal_guideline_bottom_max"
+        app:layout_constraintGuide_percent=".80"
+        android:orientation="horizontal" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/vertical_guideline_min"
+        app:layout_constraintGuide_percent=".40"
+        android:orientation="vertical" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/vertical_guideline_max"
+        app:layout_constraintGuide_percent=".60"
+        android:orientation="vertical" />
 
     <tech.solutionarchitects.advertisingsdk.api.feature.creative.CreativeView
         android:id="@+id/creativeView1"
@@ -38,19 +52,21 @@
         android:layout_height="0dp"
         android:layout_margin="5dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/vertical_guideline_66"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/horizontal_guideline_33" />
+        app:layout_constraintEnd_toStartOf="@+id/vertical_guideline_max"
+        app:layout_constraintBottom_toTopOf="@+id/horizontal_guideline_top_min"
+        />
 
     <tech.solutionarchitects.advertisingsdk.api.feature.creative.CreativeView
         android:id="@+id/creativeView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="5dp"
-        app:layout_constraintStart_toEndOf="@id/vertical_guideline_66"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/vertical_guideline_max"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/horizontal_guideline_66" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/horizontal_guideline_top_max"
+        />
 
     <tech.solutionarchitects.advertisingsdk.api.feature.creative.CreativeView
         android:id="@+id/creativeView3"
@@ -58,18 +74,31 @@
         android:layout_height="0dp"
         android:layout_margin="5dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/vertical_guideline_33"
-        app:layout_constraintTop_toBottomOf="@id/horizontal_guideline_33"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/horizontal_guideline_bottom_min"
+        app:layout_constraintEnd_toStartOf="@+id/vertical_guideline_min"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 
     <tech.solutionarchitects.advertisingsdk.api.feature.creative.CreativeView
         android:id="@+id/creativeView4"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="5dp"
-        app:layout_constraintStart_toEndOf="@+id/vertical_guideline_33"
+        app:layout_constraintStart_toEndOf="@+id/vertical_guideline_min"
+        app:layout_constraintTop_toBottomOf="@+id/horizontal_guideline_bottom_max"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/horizontal_guideline_66"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <tech.solutionarchitects.advertisingsdk.api.feature.creative.CreativeView
+        android:id="@+id/creativeView5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontal_guideline_top_max"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/horizontal_guideline_bottom_min"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

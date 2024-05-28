@@ -1,13 +1,13 @@
 package tech.solutionarchitects.testapplication.activity
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,7 +20,9 @@ import tech.solutionarchitects.advertisingsdk.api.feature.creative.CreativeView
 import tech.solutionarchitects.testapplication.R
 import tech.solutionarchitects.testapplication.databinding.ActivityCreativeRecyclerViewBinding
 import tech.solutionarchitects.testapplication.databinding.RecyclerCreativeViewItemBinding
-import timber.log.Timber
+import tech.solutionarchitects.testapplication.hideMessage
+import tech.solutionarchitects.testapplication.log
+import tech.solutionarchitects.testapplication.showMessage
 
 class CreativeRecyclerViewActivity : AppCompatActivity() {
 
@@ -77,39 +79,67 @@ class CreativeRecyclerViewActivity : AppCompatActivity() {
                 override fun onLoadDataSuccess(creativeView: CreativeView) {
                     val placementId = creativeView.query?.placementId
                     log(Log.DEBUG, "onLoadDataSuccess[${placementId}]")
+
+                    val errorLabel = creativeView.tag as? TextView
+                    errorLabel?.let {
+                        hideMessage(it)
+                    }
                 }
 
                 override fun onLoadDataFail(creativeView: CreativeView, throwable: Throwable?) {
                     val placementId = creativeView.query?.placementId
-                    log(Log.ERROR, "onLoadDataFail[${placementId}]: ${throwable?.message}")
+                    val msg = "onLoadDataFail[${placementId}]: ${throwable?.message}"
+                    log(Log.ERROR, msg)
+
+                    val errorLabel = creativeView.tag as? TextView
+                    errorLabel?.let {
+                        showMessage(msg, it, creativeView, Color.RED)
+                    }
                 }
 
                 override fun onLoadContentSuccess(creativeView: CreativeView) {
                     val placementId = creativeView.query?.placementId
                     log(Log.DEBUG, "onLoadContentSuccess[${placementId}]")
+
+                    val errorLabel = creativeView.tag as? TextView
+                    errorLabel?.let {
+                        hideMessage(it)
+                    }
                 }
 
                 override fun onLoadContentFail(creativeView: CreativeView, throwable: Throwable?) {
                     val placementId = creativeView.query?.placementId
-                    log(Log.ERROR, "onLoadContentFail[${placementId}]: ${throwable?.message}")
+                    val msg = "onLoadContentFail[${placementId}]: ${throwable?.message}"
+                    log(Log.ERROR, msg)
+
+                    val errorLabel = creativeView.tag as? TextView
+                    errorLabel?.let {
+                        showMessage(msg, it, creativeView, Color.RED)
+                    }
                 }
 
                 override fun onNoAdContent(creativeView: CreativeView) {
                     val placementId = creativeView.query?.placementId
-                    log(Log.WARN, "onNoAdContent[${placementId}]")
+                    val msg = "onNoAdContent[${placementId}]"
+                    log(Log.WARN, msg)
+
+                    val errorLabel = creativeView.tag as? TextView
+                    errorLabel?.let {
+                        showMessage(msg, it, creativeView, Color.RED)
+                    }
                 }
 
                 override fun onClose(creativeView: CreativeView) {
                     val placementId = creativeView.query?.placementId
                     log(Log.DEBUG, "onClose[${placementId}]")
+
+                    val errorLabel = creativeView.tag as? TextView
+                    errorLabel?.let {
+                        hideMessage(it)
+                    }
                 }
             }
         )
-    }
-
-    private fun log(priority: Int, message: String) {
-        Timber.log(priority, message)
-        Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
     }
 }
 
@@ -155,6 +185,10 @@ private class CreativeAdapter(
         if (creativeView == null) {
             creativeView = CreativeView(context).apply { query = item }
             creativeViews.put(position, creativeView)
+
+            // Here is the trick to create and associate errorLabel with necessary creativeView.
+            // We store it in the `creativeView.tag` ;)
+            creativeView.tag = TextView(context)
         }
         if (creativeView.parent != null) {
             (creativeView.parent as ViewGroup).removeView(creativeView)
