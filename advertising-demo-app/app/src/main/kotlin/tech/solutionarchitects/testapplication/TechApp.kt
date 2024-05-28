@@ -19,10 +19,54 @@
 package tech.solutionarchitects.testapplication
 
 import android.app.Application
+import android.graphics.Color
+import android.view.Gravity
+import android.view.View
+import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.TextView
+import android.widget.Toast
 import tech.solutionarchitects.advertisingsdk.api.TechAdvertising
+import tech.solutionarchitects.advertisingsdk.api.feature.creative.CreativeView
 import tech.solutionarchitects.advertisingsdk.api.remoteconfig.CoreDestination
 import tech.solutionarchitects.advertisingsdk.api.remoteconfig.InitConfig
 import timber.log.Timber
+
+fun log(priority: Int, message: String) {
+    Timber.log(priority, message)
+    Toast.makeText(TechApp.instance.applicationContext, message, Toast.LENGTH_SHORT).show()
+}
+
+fun showMessage(msg: String, textView: TextView, creativeView: CreativeView, color: Int) {
+    hideMessage(textView)
+
+    textView.text = msg
+    textView.setTextColor(color)
+    textView.gravity = Gravity.CENTER
+    textView.layoutParams = LinearLayout.LayoutParams(
+        ViewGroup.LayoutParams.MATCH_PARENT,
+        ViewGroup.LayoutParams.MATCH_PARENT
+    )
+    creativeView.addView(textView)
+    // Here is the trick to store visibility state of creativeView
+    // We temporarily store it in the `textView.tag` to restore it later
+    // in the `hideMessage()` (see below).
+    textView.tag = creativeView.visibility
+    creativeView.visibility = View.VISIBLE
+}
+
+fun hideMessage(textView: TextView) {
+    textView.text = ""
+    textView.setTextColor(Color.BLACK)
+
+    val parent = (textView.parent as? ViewGroup)
+    parent?.apply {
+        removeView(textView)
+        val visibilityState = textView.tag as? Int
+        visibilityState?.also { visibility = it }
+    }
+    textView.tag = null
+}
 
 /**
  * Created by Maxim Firsov on 21.08.2022.
@@ -30,8 +74,15 @@ import timber.log.Timber
  */
 class TechApp : Application() {
 
+    companion object {
+        lateinit var instance: TechApp
+            private set
+    }
+
     override fun onCreate() {
         super.onCreate()
+        instance = this
+
         Timber.plant(Timber.DebugTree())
 
         TechAdvertising.init(

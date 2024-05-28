@@ -2,14 +2,13 @@ package tech.solutionarchitects.testapplication.activity
 
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import tech.solutionarchitects.advertisingsdk.api.feature.product_creative.ProductCreative
 import tech.solutionarchitects.advertisingsdk.api.feature.product_creative.ProductCreativeEntity
 import tech.solutionarchitects.advertisingsdk.api.feature.product_creative.ProductCreativeEventListener
 import tech.solutionarchitects.advertisingsdk.api.feature.product_creative.ProductCreativeQuery
 import tech.solutionarchitects.testapplication.databinding.ActivityMultipleProductCreativesBinding
-import timber.log.Timber
+import tech.solutionarchitects.testapplication.log
 
 class MultipleProductCreativesActivity : AppCompatActivity() {
 
@@ -64,10 +63,5 @@ class MultipleProductCreativesActivity : AppCompatActivity() {
         }
 
         setContentView(binding.root)
-    }
-
-    private fun log(priority: Int, message: String) {
-        Timber.log(priority, message)
-        Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
     }
 }

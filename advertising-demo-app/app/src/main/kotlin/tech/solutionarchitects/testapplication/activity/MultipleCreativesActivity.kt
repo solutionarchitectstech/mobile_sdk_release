@@ -1,8 +1,9 @@
 package tech.solutionarchitects.testapplication.activity
 
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import tech.solutionarchitects.advertisingsdk.api.feature.creative.CreativeEventListener
 import tech.solutionarchitects.advertisingsdk.api.common.Size
@@ -10,16 +11,21 @@ import tech.solutionarchitects.advertisingsdk.api.feature.creative.Creative
 import tech.solutionarchitects.advertisingsdk.api.feature.creative.CreativeQuery
 import tech.solutionarchitects.advertisingsdk.api.feature.creative.CreativeView
 import tech.solutionarchitects.testapplication.databinding.ActivityMultipleCreativesBinding
-import timber.log.Timber
+import tech.solutionarchitects.testapplication.hideMessage
+import tech.solutionarchitects.testapplication.log
+import tech.solutionarchitects.testapplication.showMessage
 
 class MultipleCreativesActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMultipleCreativesBinding
 
+    private lateinit var errorLabels: Map<Int, TextView>
+
     private lateinit var creative: Creative
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityMultipleCreativesBinding.inflate(layoutInflater)
 
         binding.creativeView1.query = CreativeQuery(
@@ -56,6 +62,19 @@ class MultipleCreativesActivity : AppCompatActivity() {
             sizes = listOf(Size(width = 260, height = 106)),
         )
 
+        binding.creativeView5.query = CreativeQuery(
+            placementId = "MY_CREATIVE",
+            sizes = listOf(Size(width = 260, height = 106)),
+        )
+
+        errorLabels = mapOf(
+            Pair(binding.creativeView1.hashCode(), TextView(this)),
+            Pair(binding.creativeView2.hashCode(), TextView(this)),
+            Pair(binding.creativeView3.hashCode(), TextView(this)),
+            Pair(binding.creativeView4.hashCode(), TextView(this)),
+            Pair(binding.creativeView5.hashCode(), TextView(this)),
+        )
+
         creative = Creative(
             lifecycle = lifecycle,
             creativeViews = listOf(
@@ -63,36 +82,70 @@ class MultipleCreativesActivity : AppCompatActivity() {
                 binding.creativeView2,
                 binding.creativeView3,
                 binding.creativeView4,
+                binding.creativeView5,
             ),
             listener = object : CreativeEventListener {
                 override fun onLoadDataSuccess(creativeView: CreativeView) {
                     val placementId = creativeView.query?.placementId
                     log(Log.DEBUG, "onLoadDataSuccess[${placementId}]")
+
+                    val label = errorLabels[creativeView.hashCode()]
+                    if (label != null) {
+                        hideMessage(label)
+                    }
                 }
 
                 override fun onLoadDataFail(creativeView: CreativeView, throwable: Throwable?) {
                     val placementId = creativeView.query?.placementId
-                    log(Log.ERROR, "onLoadDataFail[${placementId}]: ${throwable?.message}")
+                    val msg = "onLoadDataFail[${placementId}]: ${throwable?.message}"
+                    log(Log.ERROR, msg)
+
+                    val label = errorLabels[creativeView.hashCode()]
+                    if (label != null) {
+                        showMessage(msg, label, creativeView, Color.RED)
+                    }
                 }
 
                 override fun onLoadContentSuccess(creativeView: CreativeView) {
                     val placementId = creativeView.query?.placementId
                     log(Log.DEBUG, "onLoadContentSuccess[${placementId}]")
+
+                    val label = errorLabels[creativeView.hashCode()]
+                    if (label != null) {
+                        hideMessage(label)
+                    }
                 }
 
                 override fun onLoadContentFail(creativeView: CreativeView, throwable: Throwable?) {
                     val placementId = creativeView.query?.placementId
-                    log(Log.ERROR, "onLoadContentFail[${placementId}]: ${throwable?.message}")
+                    val msg = "onLoadContentFail[${placementId}]: ${throwable?.message}"
+                    log(Log.ERROR, msg)
+
+                    val label = errorLabels[creativeView.hashCode()]
+                    if (label != null) {
+                        showMessage(msg, label, creativeView, Color.RED)
+                    }
                 }
 
                 override fun onNoAdContent(creativeView: CreativeView) {
                     val placementId = creativeView.query?.placementId
-                    log(Log.WARN, "onNoAdContent[${placementId}]")
+                    val msg = "onNoAdContent[${placementId}]"
+                    log(Log.WARN, msg)
+
+                    val label = errorLabels[creativeView.hashCode()]
+                    if (label != null) {
+                        showMessage(msg, label, creativeView, Color.RED)
+                    }
                 }
 
                 override fun onClose(creativeView: CreativeView) {
                     val placementId = creativeView.query?.placementId
                     log(Log.DEBUG, "onClose[${placementId}]")
+
+                    val label = errorLabels[creativeView.hashCode()]
+                    if (label != null) {
+                        hideMessage(label)
+                    }
                 }
             }
         )
@@ -100,10 +153,5 @@ class MultipleCreativesActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         creative.load()
-    }
-
-    private fun log(priority: Int, message: String) {
-        Timber.log(priority, message)
-        Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
     }
 }
