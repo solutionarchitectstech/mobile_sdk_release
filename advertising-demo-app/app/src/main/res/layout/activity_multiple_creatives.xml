@@ -46,7 +46,7 @@
         app:layout_constraintGuide_percent=".60"
         android:orientation="vertical" />
 
-    <tech.solutionarchitects.advertisingsdk.api.feature.creative.CreativeView
+    <tech.solutionarchitects.advertisingsdk.creative.presentation.CreativeView
         android:id="@+id/creativeView1"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -57,7 +57,7 @@
         app:layout_constraintBottom_toTopOf="@+id/horizontal_guideline_top_min"
         />
 
-    <tech.solutionarchitects.advertisingsdk.api.feature.creative.CreativeView
+    <tech.solutionarchitects.advertisingsdk.creative.presentation.CreativeView
         android:id="@+id/creativeView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -68,7 +68,7 @@
         app:layout_constraintBottom_toTopOf="@+id/horizontal_guideline_top_max"
         />
 
-    <tech.solutionarchitects.advertisingsdk.api.feature.creative.CreativeView
+    <tech.solutionarchitects.advertisingsdk.creative.presentation.CreativeView
         android:id="@+id/creativeView3"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -79,7 +79,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         />
 
-    <tech.solutionarchitects.advertisingsdk.api.feature.creative.CreativeView
+    <tech.solutionarchitects.advertisingsdk.creative.presentation.CreativeView
         android:id="@+id/creativeView4"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -90,7 +90,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         />
 
-    <tech.solutionarchitects.advertisingsdk.api.feature.creative.CreativeView
+    <tech.solutionarchitects.advertisingsdk.creative.presentation.CreativeView
         android:id="@+id/creativeView5"
         android:layout_width="0dp"
         android:layout_height="0dp"
