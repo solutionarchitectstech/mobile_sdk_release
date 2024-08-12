@@ -26,10 +26,10 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
-import tech.solutionarchitects.advertisingsdk.api.TechAdvertising
-import tech.solutionarchitects.advertisingsdk.api.feature.creative.CreativeView
-import tech.solutionarchitects.advertisingsdk.api.remoteconfig.CoreDestination
-import tech.solutionarchitects.advertisingsdk.api.remoteconfig.InitConfig
+import tech.solutionarchitects.advertisingsdk.TechAdvertising
+import tech.solutionarchitects.advertisingsdk.creative.presentation.CreativeView
+import tech.solutionarchitects.advertisingsdk.remoteconfig.domain.model.CoreDestination
+import tech.solutionarchitects.advertisingsdk.remoteconfig.domain.model.InitConfig
 import timber.log.Timber
 
 fun log(priority: Int, message: String) {

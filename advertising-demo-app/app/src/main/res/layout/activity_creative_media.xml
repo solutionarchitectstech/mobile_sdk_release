@@ -22,7 +22,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/vastLabelTextView">
 
-            <tech.solutionarchitects.advertisingsdk.api.feature.creative.CreativeView
+            <tech.solutionarchitects.advertisingsdk.creative.presentation.CreativeView
                 android:id="@+id/creativeView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
