@@ -41,7 +41,33 @@ class ProductCreativeActivity : AppCompatActivity() {
         productCreative = ProductCreative(
             query = ProductCreativeQuery(
                 placementId = "PRODUCT_01",
-                customParams = mapOf("SOME_CUSTOM_KEY" to "SOME_CUSTOM_VALUE"),
+                customParams = mapOf(
+                    "object" to mapOf(
+                        "id" to "ID00001",
+                        "name" to "MyObjectName",
+                    ),
+                    "string" to "MyString",
+                    "int" to 199,
+                    "float" to 3.14,
+                    "objectList" to listOf(
+                        mapOf(
+                            "property" to "item",
+                            "value" to "lego bricks"
+                        ),
+                        mapOf(
+                            "property" to "amount",
+                            "value" to 3001
+                        ),
+                        mapOf(
+                            "property" to "price",
+                            "value" to 12.99
+                        ),
+                    ),
+                    "integerList" to listOf(11, 12, -13, -14),
+                    "nonTypicalList" to listOf("some string", 3.14, 199),
+                    "emptyList" to emptyList<Int>(),
+                    "asd" to {}
+                )
             ),
             listener = object : ProductCreativeEventListener {
                 override fun onLoadDataSuccess() {

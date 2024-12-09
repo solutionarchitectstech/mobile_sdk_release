@@ -58,13 +58,30 @@ class CreativeInLayoutActivity : AppCompatActivity() {
             floorPrice = 2.0,
             currency = "USD",
             customParams = mapOf(
-                "skuId" to "LG00001",
-                "skuName" to "Lego bricks (speed boat)",
-                "category" to "Kids",
-                "subCategory" to "Lego",
-                "gdprConsent" to "CPsmEWIPsmEWIABAMBFRACBsABEAAAAgEIYgACJAAYiAAA.QRXwAgAAgivA",
-                "ccpa" to "1YNN",
-                "coppa" to "1"
+                "object" to mapOf(
+                    "id" to "ID00001",
+                    "name" to "MyObjectName",
+                ),
+                "string" to "MyString",
+                "int" to 199,
+                "float" to 3.14,
+                "objectList" to listOf(
+                    mapOf(
+                        "property" to "item",
+                        "value" to "lego bricks"
+                    ),
+                    mapOf(
+                        "property" to "amount",
+                        "value" to 3001
+                    ),
+                    mapOf(
+                        "property" to "price",
+                        "value" to 12.99
+                    ),
+                ),
+                "integerList" to listOf(11, 12, -13, -14),
+                "nonTypicalList" to listOf("some string", 3.14, 199),
+                "emptyList" to emptyList<Int>()
             ),
         )
         creativeView.scaleToFit = true
