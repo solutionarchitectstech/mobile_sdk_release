@@ -66,7 +66,6 @@ class ProductCreativeActivity : AppCompatActivity() {
                     "integerList" to listOf(11, 12, -13, -14),
                     "nonTypicalList" to listOf("some string", 3.14, 199),
                     "emptyList" to emptyList<Int>(),
-                    "asd" to {}
                 )
             ),
             listener = object : ProductCreativeEventListener {
