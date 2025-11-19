@@ -87,7 +87,6 @@ class TechApp : Application() {
 
         TechAdvertising.init(
             storeUrl = "YOUR_STORE_URL",
-            sessionId = "YOUR_SESSION_ID",
             initConfig = InitConfig(
                 core = CoreDestination(
                     bannerUrl = "https://YOUR_BANNER_CREATIVE_ENDPOINT",
