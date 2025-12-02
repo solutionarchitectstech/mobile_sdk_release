@@ -58,9 +58,10 @@ class MultipleProductCreativesActivity : AppCompatActivity() {
                     log(Log.ERROR, "onLoadDataFail: ${throwable.message}")
                 }
 
-                override fun onLoadContentSuccess(entity: ProductCreativeEntity) {
-                    log(Log.DEBUG, "onLoadContentSuccess[${entity.placementId}]")
-                    "${binding.productCreativeResultTextView.text}\n\n${entity}".also {
+                override fun onLoadContentSuccess(entity: ProductCreativeEntity, ext: Map<String, Any>) {
+                    val trackingId = ext["trackingId"] as? String ?: ""
+                    val creativeId = ext["creativeId"] as? String ?: ""
+                    "${binding.productCreativeResultTextView.text}\n\ntrackingId: ${trackingId}\ncreativeId: ${creativeId}\n${entity}".also {
                         binding.productCreativeResultTextView.text = it
                     }
                 }

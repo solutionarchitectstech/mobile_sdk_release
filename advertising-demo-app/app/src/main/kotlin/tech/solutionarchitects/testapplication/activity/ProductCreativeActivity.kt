@@ -77,9 +77,12 @@ class ProductCreativeActivity : AppCompatActivity() {
                     log(Log.ERROR, "onLoadDataFail: ${throwable.message}")
                 }
 
-                override fun onLoadContentSuccess(entity: ProductCreativeEntity) {
-                    log(Log.DEBUG, "onLoadContentSuccess[${entity.placementId}]")
-                    binding.productCreativeResultTextView.text = entity.toString()
+                override fun onLoadContentSuccess(entity: ProductCreativeEntity, ext: Map<String, Any>) {
+                    val trackingId = ext["trackingId"] as? String ?: ""
+                    val creativeId = ext["creativeId"] as? String ?: ""
+                    "trackingId: ${trackingId}\ncreativeId: ${creativeId}\n${entity}".also {
+                        binding.productCreativeResultTextView.text = it
+                    }
                 }
 
                 override fun onLoadContentFail(query: ProductCreativeQuery, throwable: Throwable?) {
