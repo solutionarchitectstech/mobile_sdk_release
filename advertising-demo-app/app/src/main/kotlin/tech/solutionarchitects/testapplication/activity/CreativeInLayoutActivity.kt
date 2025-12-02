@@ -106,9 +106,11 @@ class CreativeInLayoutActivity : AppCompatActivity() {
                     showMessage(msg, errorLabel, creativeView, Color.RED)
                 }
 
-                override fun onLoadContentSuccess(creativeView: CreativeView) {
+                override fun onLoadContentSuccess(creativeView: CreativeView, ext: Map<String, Any>) {
                     val placementId = creativeView.query?.placementId
-                    log(Log.DEBUG, "onLoadContentSuccess[${placementId}]")
+                    val trackingId = ext["trackingId"] as? String ?: ""
+                    val creativeId = ext["creativeId"] as? String ?: ""
+                    log(Log.DEBUG, "onLoadContentSuccess[placementId: ${placementId}, trackingId: ${trackingId}, creativeId: ${creativeId}]")
 
                     hideMessage(errorLabel)
                 }
