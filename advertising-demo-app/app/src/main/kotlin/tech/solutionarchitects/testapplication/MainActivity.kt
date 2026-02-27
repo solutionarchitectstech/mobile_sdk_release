@@ -21,9 +21,9 @@ package tech.solutionarchitects.testapplication
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import tech.solutionarchitects.advertisingsdk.TechAdvertising
 import tech.solutionarchitects.testapplication.activity.*
 import tech.solutionarchitects.testapplication.databinding.ActivityMainBinding
-import tech.solutionarchitects.testapplication.utils.requestLocation
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        requestLocation()
+        TechAdvertising.requestLocation(this)
 
         // SINGLE IMPRESSION
 

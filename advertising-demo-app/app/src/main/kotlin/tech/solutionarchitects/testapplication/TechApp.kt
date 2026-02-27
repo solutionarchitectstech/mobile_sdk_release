@@ -98,6 +98,7 @@ class TechApp : Application() {
                 "User-Agent" to { "YOUR_CUSTOM_USER_AGENT" }
             ),
             debugMode = true,
+            locationEnabled = false,
         )
         TechAdvertising.uid = "USER_ID"
     }
