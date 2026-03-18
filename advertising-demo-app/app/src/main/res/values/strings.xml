@@ -18,7 +18,6 @@
 
 <resources>
     <string name="app_name">AdvertisingSDK</string>
-
     <string name="refresh">Refresh</string>
     <string name="product_creative">Product creative</string>
     <string name="get_product_creative">Tap me to get product creative</string>
@@ -26,7 +25,16 @@
     <string name="single_impression">Single impression</string>
     <string name="multiple_impressions">Multiple impressions</string>
     <string name="product_creatives">Product Creatives</string>
-    <string name="banner_inlayout">Banner (inlayout)</string>
+    <string name="banner_manual">Banner (manual mode)</string>
+    <string name="banner_manual_get_creative">Tap me to get a banner</string>
+    <string name="section_sdk_settings">SDK SETTINGS</string>
+    <string name="section_request">BANNER REQUEST</string>
+    <string name="banner_url_hint">Banner endpoint URL</string>
+    <string name="user_id_hint">User ID</string>
+    <string name="placement_id_hint">Placement ID</string>
+    <string name="banner_width_hint">Width</string>
+    <string name="banner_height_hint">Height</string>
+    <string name="banner_inlayout">Banner (in layout)</string>
     <string name="banner_programmatically">Banner (programmatically)</string>
     <string name="banner_media">Banner (media)</string>
     <string name="banner_fullscreen">Banner (fullscreen)</string>
