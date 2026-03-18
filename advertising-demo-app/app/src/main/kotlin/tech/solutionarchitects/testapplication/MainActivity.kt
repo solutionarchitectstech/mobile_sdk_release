@@ -38,6 +38,10 @@ class MainActivity : AppCompatActivity() {
 
         // SINGLE IMPRESSION
 
+        binding.bannerManualButton.setOnClickListener {
+            startActivity(Intent(this, CreativeManualActivity::class.java))
+        }
+
         binding.bannerInLayoutButton.setOnClickListener {
             startActivity(Intent(this, CreativeInLayoutActivity::class.java))
         }

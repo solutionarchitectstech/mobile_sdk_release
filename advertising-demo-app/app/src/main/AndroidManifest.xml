@@ -41,6 +41,11 @@
         <!-- SINGLE IMPRESSION -->
 
         <activity
+                android:name=".activity.CreativeManualActivity"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:exported="true" />
+
+        <activity
             android:name=".activity.CreativeInLayoutActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true" />

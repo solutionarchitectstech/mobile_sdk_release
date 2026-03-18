@@ -77,6 +77,9 @@ class TechApp : Application() {
     companion object {
         lateinit var instance: TechApp
             private set
+
+        const val BANNER_URL = "https://YOUR_BANNER_CREATIVE_ENDPOINT"
+        const val PRODUCT_URL = "https://YOUR_PRODUCT_CREATIVE_ENDPOINT"
     }
 
     override fun onCreate() {
@@ -89,8 +92,8 @@ class TechApp : Application() {
             storeUrl = "YOUR_STORE_URL",
             initConfig = InitConfig(
                 core = CoreDestination(
-                    bannerUrl = "https://YOUR_BANNER_CREATIVE_ENDPOINT",
-                    productUrl = "https://YOUR_PRODUCT_CREATIVE_ENDPOINT",
+                    bannerUrl = BANNER_URL,
+                    productUrl = PRODUCT_URL,
                 ),
             ),
             headers = mapOf(
@@ -100,7 +103,7 @@ class TechApp : Application() {
             debugMode = true,
             locationEnabled = false,
         )
-        TechAdvertising.uid = "USER_ID"
+        TechAdvertising.uid = null
     }
 }
 
